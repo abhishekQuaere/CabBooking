@@ -1,0 +1,552 @@
+﻿@model CabBooking.Models.MainModel
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<style>
+    .wheel-collection-item img {
+         padding-top: 0px; 
+         display: inline-block; 
+         margin-left: 0px; 
+    }
+</style>
+
+<div class="wheel-start">
+    <img src="images/bg1.jpg" alt="" class="wheel-img">
+    <div class="container padd-lr0">
+        <div class="col-lg-6 col-lg-push-6 ">
+            <header class="wheel-header marg-lg-b100 marg-lg-t200  marg-md-b0 marg-md-t0">
+                <h1>We Are Wheel  </h1>
+                <h2>Search - Hire - Compare - Save</h2>
+                <span>We Help you Rent Car in 150+ Countries</span>
+            </header>
+        </div>
+        <div class="col-lg-6 col-lg-pull-6  padd-lr0">
+            <div class="wheel-start-form">
+                <form action="#">
+                    <label for="input-val11">
+                        <span>Dropping Off</span>
+                        <input type="text"  id="origin-input" class="controls" placeholder="ZIP, City, Airport or Address" required>
+                    </label>
+                    <label for="input-val12">
+                        <span>Picking Up</span>
+                        <input type="text" id="destination-input" class="controls" placeholder="ZIP, City, Airport or Address" required>
+                    </label>
+                    <div class="clearfix">
+                        <div class="wheel-date">
+                            <span>Pickup Date</span>
+                            <label for="input-val13" class="fa fa-calendar">
+                                <input class="datetimepicker" id='input-val13' type="text" value="29 Apr">
+                            </label>
+                        </div>
+                        <div class="wheel-date ">
+                            <span>Pickup time</span>
+                            <label for="input-val14" class="fa fa-clock-o">
+                                <input class="timepicker" id='input-val14' type="text" value="18:00">
+                            </label>
+                        </div>
+                        <div class="wheel-date">
+                            <span>Return Date</span>
+                            <label for="input-val15" class="fa fa-calendar">
+                                <input class="datetimepicker" id='input-val15' type="text" value="29 Apr">
+                            </label>
+                        </div>
+                        <div class="wheel-date">
+                            <span>Return Time</span>
+                            <label for="input-val16" class="fa fa-clock-o">
+                                <input class="timepicker" id='input-val16' type="text" value="18:00">
+                            </label>
+                        </div>
+                    </div>
+                    <label for="input-val18" class="promo promo2">
+                        <button class="wheel-btn" id="input-val18">Search</button>
+                    </label>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////////////// -->
+<div class="wheel-bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12" style="height:239px">
+                <div class="wheel-header text-center marg-lg-b340 marg-md-t140 marg-md-b140 marg-sm-t70" style="margin-top:90px">
+                    <h5>the Biggest Online </h5>
+                    <h3>car <span>Rental</span>  Service</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wheel-clients">
+    <div class="container padd-lr0">
+        <div class="row">
+            <div class="col-md-4 padd-r0 padd-md-lr15">
+                <div class="wheel-service-item text-center wheel-bg3">
+                    <div class="wheel-service-logo">
+                        <img src="images/ico1.png" alt="">
+                    </div>
+                    <h5>Most Affordable</h5>
+                    <p>We have carefully curated budget-friendly packages that offer exceptional value for money. From discounted rates on extended rentals to exclusive deals for specific destinations, these packages are designed to cater to your affordability needs. Save more with our specially crafted offerings. </p>
+                </div>
+            </div>
+            <div class="col-md-4 padd-lr0 padd-md-lr15">
+                <div class="wheel-service-item text-center wheel-service-active wheel-bg4">
+                    <div class="wheel-service-logo">
+                        <img src="images/ico2.png" alt="">
+                    </div>
+                    <h5>Best Rated</h5>
+                    <p>Welcome to Fast Yatra, where we offer the BEST RATED cars to ensure a top-notch experience for our valued customers. Our fleet consists of highly rated vehicles that have received exceptional feedback from previous users. Here's why our best rated car content stands out </p>
+                </div>
+            </div>
+            <div class="col-md-4 padd-l0 padd-md-lr15">
+                <div class="wheel-service-item  text-center wheel-bg5">
+                    <div class="wheel-service-logo">
+                        <img src="images/ico3.png" alt="">
+                    </div>
+                    <h5>Excellent Service</h5>
+                    <p>Welcome to Fast Yatra, where we take pride in providing EXCELLENT SERVICE to all our valued customers. We understand that a memorable travel experience goes beyond just a mode of transportation. That's why we offer exceptional car content that ensures your journey is nothing short of extraordinary: </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-12 ">
+            <div class="wheel-service-img">
+                <img src="~/Content/images/i1.png" alt="" class="wheel-img">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /////////////////////////////////////////////////// -->
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="wheel-header wheel-testi-header text-center marg-lg-t155 marg-lg-b65 marg-md-t50  marg-md-b50">
+                <h3>Our Mission is <span>Client’s</span> Satisfaction</h3>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="wheel-testimonial text-center">
+                <p>
+                    Welcome To Our Cab Booking Website,Where You Can Easily And Conveniently Book A Ride For Your Next Destination. With Our User­ Friendly Interface And Efficient Booking Process, You Can Quickly Reserve A Cab In Just A Few Clicks.We Offer A Wide Range Of Cab Options To Choose From, Including Standard,Deluxe, And Luxury Cars. Whether You're Traveling Alone Or With A Group,We Have A Vehicle That Can Accommodate Your Needs. Plus,All Our Drivers Are Highly Experienced And Licensed Professionals, Ensuring A Safe And Comfortable Ride.
+                    With Our Secure Online Payment System,You
+                    Can Easily Make Your Booking And Pay For Your Ride Without Worrying About Any Fraud Or Security Issues.Additionally,We Offer Flexible Cancellation Policies To Ensure Your Convenience And Satisfaction. So,Book Your Ride With Us Today And Enjoy A Hassle-Free And Comfortable Travel Experience.
+                </p>
+                <div class="wheel-testimonial-info">
+                    <span>Kapil Tiwari</span>
+                    <img src="~/Content/images/Kapil.png" alt="CEO Image" style=" height: 86px; width: 88px; border-radius: 39px 41px 39px 39px;"/>
+                    <p> C.E.O. & Co-Founder</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 padd-lr0 ">
+            <div class="wheel-testimonial-item">
+                <i class="fa fa-users"></i>
+                <span data-to="753" data-speed="10000"></span><b>+</b>
+                <p>Dedicated Employees</p>
+            </div>
+            <div class="wheel-testimonial-item">
+                <i class="fa fa-thumbs-o-up"></i>
+                <span data-to="9053" data-speed="5000"></span><b>+</b>
+                <p>Satisfied Customers</p>
+            </div>
+            <div class="wheel-testimonial-item">
+                <i class="fa  fa-car"></i>
+                <span data-to="529" data-speed="6000"></span><b>+</b>
+                <p>100% Fit Veihicles</p>
+            </div>
+            <div class="wheel-testimonial-item">
+                <i class="fa fa-trophy"></i>
+                <span data-to="111" data-speed="1000"></span><b>+</b>
+                <p>Int. Awards Achieved</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /////////////////////////////////////////////////////////// -->
+<div class="wheel-collection wheel-bg2">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wheel-header text-center marg-lg-t140 marg-lg-b65  marg-md-t50 ">
+                    <h5>We have a Great </h5>
+                    <h3>collection of <span>vehicles</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 ">
+                <div class="tabs">
+                    <div class="tabs-header">
+                        <ul>
+                            <li class="active"><a href="#">Most Popular</a></li>
+                            <li><a href="#">Newly Added</a></li>
+                            @*<li><a href="#">On Sale</a></li>*@
+                        </ul>
+                    </div>
+                    <div class="tabs-content  marg-lg-b30">
+                        <div class="tabs-item active ">
+                            <div class="swiper-container" data-autoplay="0" data-touch="1" data-mouse="0" data-xs-slides="1" data-sm-slides="2" data-md-slides="4" data-lg-slides="6" data-add-slides="6" data-slides-per-view="responsive" data-loop="1" data-speed="1000">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @if (Model != null && Model.list.Count() > 0)
+                                        {
+                                            foreach (var itm in Model.list)
+                                            {
+                                                <div class="wheel-collection-item" data-name='@itm.VehicleModel @itm.VehicleName' data-carClass='@itm.VehicleType' data-price='@itm.MinimumFare' data-text='@itm.VehicleDescription' data-bags='2 Bags' data-passenger='@itm.SeatingCapacity' data-speed='5.6/100 MPG' data-img='@itm.VehiclePhoto.Replace("~","")'><img src="@itm.VehiclePhoto.Replace("~","")" height="69px" width="141px" alt="Vehicle Photo"></div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                                <div class="swiper-arrow-left fa fa-angle-left"></div>
+                                <div class="swiper-arrow-right fa fa-angle-right"></div>
+                                <div class="pagination"></div>
+                            </div>
+                        </div>
+                        <div class="tabs-item  ">
+                            <div class="swiper-container" data-autoplay="0" data-touch="1" data-mouse="0" data-xs-slides="1" data-sm-slides="2" data-md-slides="4" data-lg-slides="6" data-add-slides="6" data-slides-per-view="responsive" data-loop="1" data-speed="1000">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @if (Model != null && Model.list.Count() > 0)
+                                        {
+                                            foreach (var itm in Model.list)
+                                            {
+                                                <div class="wheel-collection-item" data-name='@itm.VehicleModel @itm.VehicleName' data-carClass='@itm.VehicleType' data-price='@itm.MinimumFare' data-text='@itm.VehicleDescription' data-bags='2 Bags' data-passenger='@itm.SeatingCapacity' data-speed='5.6/100 MPG' data-img='@itm.VehiclePhoto.Replace("~","")'><img src="@itm.VehiclePhoto.Replace("~","")" height="69px" width="141px" alt="Vehicle Photo"></div>
+                                            }
+                                        }
+                                    </div>
+
+                                </div>
+                                <div class="swiper-arrow-left fa fa-angle-left"></div>
+                                <div class="swiper-arrow-right fa fa-angle-right"></div>
+                                <div class="pagination"></div>
+                            </div>
+                        </div>
+                        @*<div class="tabs-item  ">
+                            <div class="swiper-container" data-autoplay="0" data-touch="1" data-mouse="0" data-xs-slides="1" data-sm-slides="2" data-md-slides="4" data-lg-slides="6" data-add-slides="6" data-slides-per-view="responsive" data-loop="1" data-speed="1000">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        @if (Model != null && Model.list.Count() > 0)
+                                        {
+                                            foreach (var itm in Model.list)
+                                            {
+                                                <div class="wheel-collection-item" data-name='@itm.VehicleModel @itm.VehicleName' data-carClass='@itm.VehicleType' data-price='@itm.MinimumFare' data-text='@itm.VehicleDescription' data-bags='2 Bags' data-passenger='@itm.SeatingCapacity' data-speed='5.6/100 MPG' data-img='@itm.VehiclePhoto.Replace("~","")'><img src="@itm.VehiclePhoto.Replace("~","")" height="69px" width="141px" alt="Vehicle Photo"></div>
+                                            }
+                                        }
+                                    </div>
+
+                                </div>
+                                <div class="swiper-arrow-left fa fa-angle-left"></div>
+                                <div class="swiper-arrow-right fa fa-angle-right"></div>
+                                <div class="pagination"></div>
+                            </div>
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5 padd-lr0">
+                <div class="wheel-collection-info">
+                    <div class="wheel-collection-text">
+                        <h4 class="car-name">2016 Nissan Juke</h4>
+                        <span class="car-class">Luxury Sports Car</span>
+                        <h5><b class="car-Price">$79</b>/Km</h5>
+                        <p class="car-text">Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsu nec sagittis sem nibh id elit. </p>
+                        <ul>
+                            <li><i class="fa fa-suitcase"></i><span class="car-bags">2 Bags</span></li>
+                            <li><i class="fa fa-user"></i><span class="car-passengers">2 Passengers</span></li>
+                            <li><i class="fa fa-tachometer"></i><span class="car-speed">5.6/100 MPG</span></li>
+                        </ul>
+                        <a href="#" class="wheel-btn">View All rental Car</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-7 padd-lr0">
+                <div class="wheel-collection-img"><img src="~/Content/images/i6.png" alt="" class="car-img" width="700px" height="360px"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////// -->
+<div class="container padd-lr0">
+    <div class="row">
+        <div class="col-md-6 ">
+            <div class="wheel-info-img  marg-lg-t150 marg-lg-b150 marg-md-t100 marg-md-b100">
+                <img src="~/Content/images/i7.png" alt="" class="wheel-img">
+            </div>
+        </div>
+        <div class="col-md-6 ">
+            <div class="wheel-info-text  marg-lg-t150 marg-lg-b150 marg-md-t100 marg-md-b100 marg-sm-t50 marg-sm-b50">
+                <div class="wheel-header">
+                    <h5>Who we are  </h5>
+                    <h3>We Love Our <span>Customers</span></h3>
+                </div>
+                <span>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. </span>
+                <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam </p>
+                <a href="#" class="wheel-btn">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////////////////////// -->
+<div class="wheel-deals text-center">
+    <img src="~/Content/images/bg2.jpg" alt="" class="wheel-img">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wheel-header">
+                    <h5>Be with us </h5>
+                    <h3>We offers great <span>deals</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wheel-deals-text">
+                    <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
+                    <a href="#" class="wheel-btn">Discover More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /////////////////////////////////////////////////////// -->
+<div class="wheel-news  wheel-bg2 ">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wheel-header text-center marg-lg-t140 marg-lg-b90 marg-md-t50 ">
+                    <h5>our Blog </h5>
+                    <h3>the Latest <span>news </span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 padd-l0  padd-md-lr15">
+                <div class="wheel-news-item   wheel-bg1">
+                    <i class="">29 April</i>
+                    <div class="wheel-news-item-img">
+                        <img src="~/Content/images/i8.jpg" alt="">
+                    </div>
+                    <div class="wheel-news-text">
+                        <h5><a href="news-details.html">Monotonectally build distinctive convergence and an attempt</a></h5>
+                        <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad...</p>
+                        <a href="#">Read More </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="wheel-news-item   wheel-bg1">
+                    <i class="">29 April</i>
+                    <div class="wheel-news-item-img">
+                        <img src="~/Content/images/i9.jpg" alt="">
+                    </div>
+                    <div class="wheel-news-text">
+                        <h5><a href="news-details.html">Monotonectally build distinctive convergence and an attempt</a></h5>
+                        <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad...</p>
+                        <a href="#">Read More </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 padd-r0 padd-md-lr15">
+                <div class="wheel-news-item   wheel-bg1">
+                    <i class="">29 April</i>
+                    <div class="wheel-news-item-img">
+                        <img src="~/Content/images/i10.jpg" alt="">
+                    </div>
+                    <div class="wheel-news-text">
+                        <h5><a href="news-details.html">Monotonectally build distinctive convergence and an attempt</a></h5>
+                        <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad...</p>
+                        <a href="#">Read More </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ////////////////////////////////////// -->
+<div class="container ">
+    <div class="row">
+        <div class="col-md-6 padd-lr0">
+            <div class="wheel-info-text2 marg-lg-t140 marg-lg-b150 marg-md-t100 marg-md-b50 ">
+                <div class="wheel-header">
+                    <h5>Did you know? </h5>
+                    <h3>We’ll let you<span> Tow</span></h3>
+                </div>
+                <span>Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. </span>
+                <p>Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam </p>
+                <a href="#" class="wheel-btn">Learn More</a>
+            </div>
+        </div>
+        <div class="col-md-6 padd-lr0">
+            <div class="wheel-info-video marg-lg-t150 marg-lg-b150 marg-md-t50 marg-md-b50">
+                <iframe src="https://www.youtube.com/embed/dBlSHIBUx7g"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //////////////////////////////////////////// -->
+<div class="wheel-quote text-center">
+    <img src="images/bg3.jpg" alt="" class="wheel-img">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="swiper-container" data-autoplay="7000" data-touch="1" data-mouse="0" data-xs-slides="1" data-sm-slides="1" data-md-slides="1" data-lg-slides="1" data-add-slides="1" data-slides-per-view="responsive" data-loop="1" data-speed="1000">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="wheel-quote-item">
+                                <div class="wheel-quote-logo"><img src="~/Content/images/l2.png" alt=""></div>
+                                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
+                                <div class="wheel-quote-stars"><img src="~/Content/images/stars.png" alt=""></div>
+                                <h6>Catrina Romero</h6>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="wheel-quote-item">
+                                <div class="wheel-quote-logo"><img src="~/Content/images/l2.png" alt=""></div>
+                                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
+                                <div class="wheel-quote-stars"><img src="~/Content/images/stars.png" alt=""></div>
+                                <h6>Catrina Romero</h6>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="wheel-quote-item">
+                                <div class="wheel-quote-logo"><img src="~/Content/images/l2.png" alt=""></div>
+                                <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio.</p>
+                                <div class="wheel-quote-stars"><img src="~/Content/images/stars.png" alt=""></div>
+                                <h6>Catrina Romero</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pagination"></div>
+                </div>
+                <div class="swiper-outer-left fa fa-angle-left"></div>
+                <div class="swiper-outer-right fa fa-angle-right"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="wheel-quote-partners">
+                    <a href="#"><img src="~/Content/images/p1.png" alt=""></a>
+                    <a href="#"><img src="~/Content/images/p2.png" alt=""></a>
+                    <a href="#"><img src="~/Content/images/p3.png" alt=""></a>
+                    <a href="#"><img src="~/Content/images/p4.png" alt=""></a>
+                    <a href="#"><img src="~/Content/images/p5.png" alt=""></a>
+                    <a href="#"><img src="~/Content/images/p6.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="map" ></div>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&libraries=places&v=weekly"
+        defer></script>
+<script>
+
+    function initMap() {
+        debugger;
+        const map = new google.maps.Map(document.getElementById("map"), {
+            mapTypeControl: false,
+            center: { lat: -33.8688, lng: 151.2195 },
+            zoom: 13,
+        });
+
+        new AutocompleteDirectionsHandler(map);
+    }
+
+    class AutocompleteDirectionsHandler {
+        debugger;
+        map;
+        originPlaceId;
+        destinationPlaceId;
+        travelMode;
+        directionsService;
+        directionsRenderer;
+        constructor(map) {
+            this.map = map;
+            this.originPlaceId = "";
+            this.destinationPlaceId = "";
+            this.travelMode = google.maps.TravelMode.WALKING;
+            this.directionsService = new google.maps.DirectionsService();
+            this.directionsRenderer = new google.maps.DirectionsRenderer();
+            this.directionsRenderer.setMap(map);
+
+            const originInput = document.getElementById("origin-input");
+            const destinationInput = document.getElementById("destination-input");
+            const modeSelector = document.getElementById("mode-selector");
+            // Specify just the place data fields that you need.
+            const originAutocomplete = new google.maps.places.Autocomplete(
+                originInput,
+                { fields: ["place_id"] }
+            );
+            // Specify just the place data fields that you need.
+            const destinationAutocomplete = new google.maps.places.Autocomplete(
+                destinationInput,
+                { fields: ["place_id"] }
+            );
+            this.setupPlaceChangedListener(originAutocomplete, "ORIG");
+            this.setupPlaceChangedListener(destinationAutocomplete, "DEST");
+            this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(originInput);
+            this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(
+                destinationInput
+            );
+            this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(modeSelector);
+        }
+
+        setupPlaceChangedListener(autocomplete, mode) {
+            autocomplete.bindTo("bounds", this.map);
+            autocomplete.addListener("place_changed", () => {
+                const place = autocomplete.getPlace();
+
+                if (!place.place_id) {
+                    window.alert("Please select an option from the dropdown list.");
+                    return;
+                }
+
+                if (mode === "ORIG") {
+                    this.originPlaceId = place.place_id;
+                } else {
+                    this.destinationPlaceId = place.place_id;
+                }
+
+                this.route();
+            });
+        }
+        route() {
+            debugger
+            if (!this.originPlaceId || !this.destinationPlaceId) {
+                return;
+            }
+
+            const me = this;
+
+            this.directionsService.route(
+                {
+                    origin: { placeId: this.originPlaceId },
+                    destination: { placeId: this.destinationPlaceId },
+                    travelMode: this.travelMode,
+                },
+                (response, status) => {
+                    if (status === "OK") {
+                        me.directionsRenderer.setDirections(response);
+                    } else {
+                        window.alert("Directions request failed due to " + status);
+                    }
+                }
+            );
+        }
+    }
+
+    window.initMap = initMap;
+
+</script>
