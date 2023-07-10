@@ -26,5 +26,26 @@ namespace CabBooking.DbRepository
                 throw ex;
             }
         }
+
+        public T AddBooking<T>(MainModel obj)
+        {
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("ProcId", 1);
+                dynamicParameters.Add("Id", obj.Id);
+                dynamicParameters.Add("Source", obj.Source);
+                dynamicParameters.Add("Destination", obj.Destination);
+                dynamicParameters.Add("TotalPrices", obj.TotalPrices);
+                dynamicParameters.Add("Name", obj.Name);
+                dynamicParameters.Add("MobileNo", obj.MobileNo);
+                
+                return _dapper.ExecuteGet<T>("Proc_AddBooking", dynamicParameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

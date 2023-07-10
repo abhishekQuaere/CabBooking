@@ -1,0 +1,75 @@
+﻿
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+@if (ViewBag.ResponseMessage != null)
+{
+    string ResponseType = @String.IsNullOrEmpty(ViewBag.ResponseType) ? "info" : ViewBag.ResponseType;
+    string ResponseTitle = @String.IsNullOrEmpty(ViewBag.ResponseTitle) ? "" : ViewBag.ResponseTitle;
+    <script>
+        $(document).ready(function () {
+            @*swal(
+                        '@ViewBag.ResponseMessage', '@ResponseTitle', "@ResponseType"
+                ).then(function () {
+                    @if (!string.IsNullOrEmpty(ViewBag.ResponseURL))
+                    {
+                        @:window.location.href = "@ViewBag.ResponseURL";
+                                                            }
+                })*@
+
+            $.confirm({
+                title: '@ResponseTitle',
+                content: '@ViewBag.ResponseMessage',
+                buttons: {
+                    Ok: function () {
+                        @if (!string.IsNullOrEmpty(ViewBag.ResponseURL))
+                        {
+                            //$.alert('Confirmed!');
+                            @:window.location.href = "@ViewBag.ResponseURL";
+                        }
+                        }
+                }
+            });
+
+        })
+    </script>
+}
+else if (TempData["ResponseMessage"] != null)
+{
+    var a = TempData["ResponseType"];
+    string ResponseType = "info";
+    if (a != null)
+    {
+        ResponseType = a.ToString();
+    }
+    <script>
+        $(document).ready(function () {
+            @*swal(
+                        '@TempData["ResponseMessage"]', "", "@ResponseType"
+                ).then(function () {
+                    @if (TempData["ResponseURL"] != null)
+                    {
+                        if (TempData["ResponseURL"].ToString().Trim().Length > 0)
+                        {
+                            @:window.location.href = "@TempData["ResponseURL"]";
+                                                                }
+                    }
+                })*@
+
+            $.confirm({
+                content: '@TempData["ResponseMessage"]',
+                buttons: {
+                    Ok: function () {
+                        @if (TempData["ResponseURL"] != null)
+                        {
+                            if (TempData["ResponseURL"].ToString().Trim().Length > 0)
+                            {
+                            @:window.location.href = "@ViewBag.ResponseURL";
+                    }
+                            }
+                        }
+                }
+            });
+        })
+    </script>
+}
+

@@ -1,0 +1,81 @@
+﻿@model CabBooking.Models.MainModel
+@{
+    ViewBag.Title = "ActiveTrips";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-content-wrapper">
+    <div class="page-content">
+        <div class="page-bar">
+            <div class="page-title-breadcrumb">
+                <div class=" pull-left">
+                    <div class="page-title">Active Trips</div>
+                </div>
+                <ol class="breadcrumb page-breadcrumb pull-right">
+                    <li>
+                        <i class="fa fa-home"></i> <a class="parent-item" href="index.html">Home</a> <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li>
+                        <a class="parent-item" href>Trips</a> <i class="fa fa-angle-right"></i>
+                    </li>
+                    <li class="active">Active Trips</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card card-box">
+                    <div class="card-head">
+                        <header>Active Trips</header>
+                        <div class="tools">
+                            <a class="fa fa-repeat btn-color box-refresh" href="javascript:;"></a>
+                            <a class="t-collapse btn-color fa fa-chevron-down" href="javascript:;"></a>
+                            <a class="t-close btn-color fa fa-times" href="javascript:;"></a>
+                        </div>
+                    </div>
+                    <div class="card-body ">
+                        <div class="table-scrollable">
+                            <table id="tableExport" class="display">
+                                <thead>
+                                    <tr>
+                                        <th>Sr no</th>
+                                        
+                                        <th>Passenger Name</th>
+                                        <th>Mobile No</th>
+                                        <th>Trip From</th>
+                                        <th>Trip To</th>
+                                        <th>Prices </th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    @if (Model.list.Count() > 0 && Model != null)
+                                    {
+                                        int a = 0;
+                                        foreach (var itm in Model.list)
+                                        {
+
+                                            <tr>
+                                                <td>@(a+1)</td>
+                                                <td>@itm.Name</td>
+                                                <td>@itm.MobileNo</td>
+                                                <td>@itm.Destination</td>
+                                                <td>@itm.Source</td>
+                                                <td>@itm.TotalPrices</td>
+                                            </tr>
+                                            a++;
+                                        }
+
+                                    }
+
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

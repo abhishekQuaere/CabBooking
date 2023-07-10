@@ -48,10 +48,56 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.138\lib\net461\Dapper.dll</HintPath>
     </Reference>
+    <Reference Include="KdTreeLib, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\KdTree.1.4.0\lib\net471\KdTreeLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NGeoNames, Version=1.5.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NGeoNames.1.5.1\lib\net471\NGeoNames.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=110.2.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.110.2.0\lib\net471\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Device" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.7.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=7.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.7.0.2\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -101,9 +147,6 @@
     <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
@@ -177,9 +220,7 @@
     <Content Include="Content\Admin\js\dpZoneFileupload.js" />
     <Content Include="Content\Admin\js\dropzone-call.js" />
     <Content Include="Content\Admin\js\dropzone.js" />
-    <Content Include="Content\Admin\js\flatpicker.min.js" />
     <Content Include="Content\Admin\js\getmdl-select.js" />
-    <Content Include="Content\Admin\js\gmap-home.js" />
     <Content Include="Content\Admin\js\jquery.blockui.min.js" />
     <Content Include="Content\Admin\js\jquery.min.js" />
     <Content Include="Content\Admin\js\jquery.slimscroll.min.js" />
@@ -198,8 +239,10 @@
     <Content Include="Content\assets\css\css_reset.css" />
     <Content Include="Content\assets\css\datepicker.css" />
     <Content Include="Content\assets\css\datepicker.min.css" />
+    <Content Include="Content\assets\css\draggle.css" />
     <Content Include="Content\assets\css\index.css" />
     <Content Include="Content\assets\css\jquery-confirm.css" />
+    <Content Include="Content\assets\css\jquery-ui.css" />
     <Content Include="Content\assets\css\jquery.datetimepicker.min.css" />
     <Content Include="Content\assets\css\loaders.min.css" />
     <Content Include="Content\assets\css\sweetalert.css" />
@@ -212,13 +255,16 @@
     <Content Include="Content\assets\fonts\glyphicons-halflings-regulard41d.html" />
     <Content Include="Content\assets\js\bootstrap-select.min.js" />
     <Content Include="Content\assets\js\bootstrap.min.js" />
+    <Content Include="Content\assets\js\builder.js" />
     <Content Include="Content\assets\js\datepicker.en.js" />
     <Content Include="Content\assets\js\datepicker.js" />
     <Content Include="Content\assets\js\equalHeightsPlugin.js" />
     <Content Include="Content\assets\js\idangerous.swiper.min.js" />
     <Content Include="Content\assets\js\index.js" />
     <Content Include="Content\assets\js\jquery-2.2.4.min.js" />
+    <Content Include="Content\assets\js\jquery-amsify-suggestags.js" />
     <Content Include="Content\assets\js\jquery-confirm.min.js" />
+    <Content Include="Content\assets\js\jquery-ui.js" />
     <Content Include="Content\assets\js\jquery.countTo.js" />
     <Content Include="Content\assets\js\jquery.datetimepicker.full.min.js" />
     <Content Include="Content\assets\js\sweetalert.js" />
@@ -319,6 +365,7 @@
     <Content Include="Content\images\p7.png" />
     <Content Include="Content\images\p8.png" />
     <Content Include="Content\images\p9.png" />
+    <Content Include="Content\images\priceTag.jpeg" />
     <Content Include="Content\images\stars.png" />
     <Content Include="Content\images\z-banner-img.png" />
     <Content Include="Content\images\z-bg-11.jpg" />
@@ -403,6 +450,7 @@
     <Content Include="Views\Shared\_ResponseMessage.cshtml" />
     <Content Include="Views\Admin\_ProductPictures.cshtml" />
     <Content Include="Views\Admin\AllFare.cshtml" />
+    <Content Include="Views\Home\getAddress.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

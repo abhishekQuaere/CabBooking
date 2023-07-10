@@ -88,7 +88,10 @@ namespace CabBooking.Controllers
 
         public ActionResult ActiveTrips()
         {
-            return View();
+            MainModel model = new MainModel();
+            model.ProcId = 2;
+            model.list = adminDb.GetAllBooking<MainModel>(model);
+            return View(model);
         }
         public ActionResult CompleteTrips()
         {
