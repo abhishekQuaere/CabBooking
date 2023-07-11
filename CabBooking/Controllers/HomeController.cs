@@ -271,9 +271,53 @@ namespace CabBooking.Controllers
             return Json("", JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult getAddress()
+        //public ActionResult getAddress()
+        //{
+        //    return View();
+        //}
+
+        public JsonResult getAddress(string term)
         {
-            return View();
+            string apiKey = "16c6b62bcedf492e923e0cfa39d58db9";
+            string apiUrl = $"https://api.geoapify.com/v1/geocode/autocomplete?text={term}&apiKey={apiKey}";
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+            request.Method = "GET";
+
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            {
+                if (response.StatusCode == HttpStatusCode.OK)
+                {
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        StreamReader reader = new StreamReader(stream);
+                        string content = reader.ReadToEnd();
+
+                        var result = JsonConvert.DeserializeObject<RootV2>(content);
+
+                        if (result.features.Count > 0)
+                        {
+
+                            var locations = result.features;
+                            List<string> addressSuggestions = locations.Select(l => l.properties.name+","+l.properties.village + ", " + l.properties.city + ", " + l.properties.county + " " + l.properties.state_district+","+l.properties.state+","+l.properties.country).ToList();
+
+                            return Json(addressSuggestions, JsonRequestBehavior.AllowGet);
+                        }
+                        else
+                        {
+                            // Address not found
+                            ViewBag.Error = "Address not found";
+                        }
+                    }
+                }
+                else
+                {
+                    // Handle API error
+                    ViewBag.Error = "Failed to retrieve coordinates";
+                }
+            }
+
+            return Json("", JsonRequestBehavior.AllowGet);
         }
 
         public JsonResult GetCalculateDistance(LatLng source,LatLng destination)

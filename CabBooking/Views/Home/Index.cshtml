@@ -517,7 +517,7 @@
             source: function (request, response) {
                 debugger;
                 $.ajax({
-                    url: "@Url.Action("GetAddressSuggestions", "Home")",
+                    url: "@Url.Action("getAddress", "Home")",
                     type: "POST",
                     dataType: "json",
                     data: { term: request.term.toUpperCase() },
