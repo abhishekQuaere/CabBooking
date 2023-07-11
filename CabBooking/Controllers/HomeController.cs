@@ -87,8 +87,8 @@ namespace CabBooking.Controllers
         [HttpPost]
         public ActionResult Index(MainModel model) 
         {
-            string Price = model.TotalPrices.Replace("₹", "");
-            model.TotalPrices = Price;
+            //string Price = model.TotalPrices.Replace("₹", "");
+            //model.TotalPrices = Price;
             ResultSet obj = new ResultSet();
             obj = homeDb.AddBooking<ResultSet>(model);
             if (obj.flag == 1)
