@@ -27,12 +27,20 @@
         text-transform: uppercase;
         min-height: 60px;
     }
+
+    .wheel-start-form label input {
+        display: inline-block;
+        width: 104% !important;
+        border-left: 2px solid #e6e6e6;
+        padding: 8px 35px;
+    }
 </style>
 
 <div class="wheel-start">
     <img src="images/bg1.jpg" alt="" class="wheel-img">
     <div class="container padd-lr0">
         <div class="col-lg-6">
+            <h2>Request a ride now</h2>
             <div class="wheel-start-form">
                 @*@Html.Partial("_ResponseMessage")*@
                 <form action="/Home/Index" method="post">
@@ -50,39 +58,14 @@
                         <input type="hidden" id="distance" />
                     </label>
 
-                    @*<div class="clearfix">
-                            <div class="wheel-date">
-                                <span>Pickup Date</span>
-                                <label for="input-val13" class="fa fa-calendar">
-                                    <input class="datetimepicker" id='input-val13' type="text" value="29 Apr">
-                                </label>
-                            </div>
-                            <div class="wheel-date ">
-                                <span>Pickup time</span>
-                                <label for="input-val14" class="fa fa-clock-o">
-                                    <input class="timepicker" id='input-val14' type="text" value="18:00">
-                                </label>
-                            </div>
-                            <div class="wheel-date">
-                                <span>Return Date</span>
-                                <label for="input-val15" class="fa fa-calendar">
-                                    <input class="datetimepicker" id='input-val15' type="text" value="29 Apr">
-                                </label>
-                            </div>
-                            <div class="wheel-date">
-                                <span>Return Time</span>
-                                <label for="input-val16" class="fa fa-clock-o">
-                                    <input class="timepicker" id='input-val16' type="text" value="18:00">
-                                </label>
-                            </div>
-                        </div>*@
-
-                    @*<div class="wheel-date">
-                            <span>Total Prices</span>
-                            <label for="input-val16">
-                                <input id='totalPrices' class="controls" type="text" disabled>
+                    <div class="clearfix">
+                        <div class="wheel-date">
+                            <span>Choose Cab Type</span>
+                            <label for="input-val13" class="fa fa-calendar">
+                                <input class="datetimepicker" id='input-val13' type="text" value="29 Apr">
                             </label>
-                        </div>*@
+                        </div>
+                    </div>
 
                     <div class="wheel-price">
                         <label for="input-val11">
@@ -562,7 +545,7 @@
             source: function (request, response) {
                 debugger;
                 $.ajax({
-                    url: "@Url.Action("GetAddressSuggestions", "Home")",
+                    url: "@Url.Action("getAddress", "Home")",
                     type: "POST",
                     dataType: "json",
                     data: { term: request.term.toUpperCase() },
