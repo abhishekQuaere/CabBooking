@@ -26,7 +26,7 @@ namespace CabBooking.Models
         public int Id { get; set; }
         public int IsDeleted { get; set; }
         public int ProcId { get; set; }
-
+        public string VehicleId { get; set; }
         public string Source { get; set; }
         public string Destination { get; set; }
         public string TotalPrices { get; set; }

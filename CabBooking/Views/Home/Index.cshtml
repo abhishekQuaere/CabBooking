@@ -28,79 +28,116 @@
         min-height: 60px;
     }
 
-    .wheel-start-form label input {
+    /*.wheel-start-form label input {
         display: inline-block;
         width: 104% !important;
         border-left: 2px solid #e6e6e6;
         padding: 8px 35px;
+    }*/
+    .form-control {
+        display: inline-block !important;
+        width: 70% !important;
     }
+
+    .wheel-start-form label input {
+        padding: 8px 3px !important;
+    }
+
+    .wheel-start-form {
+        position: relative;
+        max-width: 100%;
+        padding: 40px 30px;
+        background-color: rgba(255,255,255,.4);
+        z-index: 2;
+    }
+
+    .wheel-start-form {
+        padding: 9px 15px !important;
+    }
+        .wheel-start-form label span {
+            display: inline-block;
+            width: 26%;
+            max-width: 135px;
+            position: relative;
+        }
+
+        .wheel-start-form label span {
+            display: contents!important;
+            width: 26%;
+            max-width: 135px;
+            position: relative;
+            margin-left: 5px;
+        }
 </style>
 
 <div class="wheel-start">
     <img src="images/bg1.jpg" alt="" class="wheel-img">
     <div class="container padd-lr0">
-        <div class="col-lg-6">
-            <h2>Request a ride now</h2>
-            <div class="wheel-start-form">
-                @*@Html.Partial("_ResponseMessage")*@
-                <form action="/Home/Index" method="post">
-                    <label for="input-val11">
-                        <span>Dropping Off &nbsp; <i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                        <input type="text" id="dropping" class="controls" name="Source" placeholder="ZIP, City, Airport or Address" required>
-                        <input type="hidden" id="dlat" />
-                        <input type="hidden" id="dlng" />
-                    </label>
-                    <label for="input-val12">
-                        <span>Picking Up  &nbsp; <i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                        <input type="text" id="picking" class="controls" name="Destination" placeholder="ZIP, City, Airport or Address" required>
-                        <input type="hidden" id="plat" />
-                        <input type="hidden" id="plng" />
-                        <input type="hidden" id="distance" />
-                    </label>
+        <div class="row">
+            <div class="col-lg-6">
 
-                    <div class="clearfix">
-                        <div class="wheel-date">
-                            <span>Choose Cab Type</span>
-                            <label for="input-val13" class="fa fa-calendar">
-                                <input class="datetimepicker" id='input-val13' type="text" value="29 Apr">
+                <div class="wheel-start-form">
+                    <h3 style="margin-bottom: 10px; text-align:center">Request a ride now</h3>
+                    @*@Html.Partial("_ResponseMessage")*@
+                    <form action="/Home/Index" method="post">
+                        <label for="input-val11">
+                            <span>Dropping Off &nbsp; <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <input type="text" id="dropping" class="controls form-control" name="Source" placeholder="ZIP, City, Airport or Address" required>
+                            <input type="hidden" id="dlat" />
+                            <input type="hidden" id="dlng" />
+                        </label>
+                        <label for="input-val12">
+                            <span>Picking Up  &nbsp; <i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                            <input type="text" id="picking" class="controls form-control" name="Destination" placeholder="ZIP, City, Airport or Address" required>
+                            <input type="hidden" id="plat" />
+                            <input type="hidden" id="plng" />
+                            <input type="hidden" id="distance" />
+                        </label>
+
+                        <label>
+                            <span>Choose cab &nbsp; <i class="fa fa-cab" aria-hidden="true"></i></span>
+                            @Html.DropDownListFor(m => m.VehicleId, new SelectList(ViewBag.VehiclesList, "Value", "Text"), "-- Select --", new { @class = "controls form-control" })
+                        </label>
+
+                        <div class="wheel-price">
+                            <label for="input-val11">
+                                <span>Total Prices  &nbsp; <i class="fa fa-inr" aria-hidden="true"></i></span>
+                                <input type="text" class="controls totalPrices" disabled>
+                                <input type="hidden" name="TotalPrices" class="totalPrices form-control" />
                             </label>
                         </div>
-                    </div>
+                        <div class="wheel-price">
+                            <label for="input-val11">
+                                <span>Name  &nbsp; <i class="fa fa-user" aria-hidden="true"></i></span>
+                                <input type="text" id="Name" class="controls form-control" name="Name" required>
 
-                    <div class="wheel-price">
-                        <label for="input-val11">
-                            <span>Total Prices  &nbsp; <i class="fa fa-inr" aria-hidden="true"></i></span>
-                            <input type="text" class="controls totalPrices" disabled>
-                            <input type="hidden" name="TotalPrices" class="totalPrices" />
-                        </label>
-                    </div>
-                    <div class="wheel-price">
-                        <label for="input-val11">
-                            <span>Name  &nbsp; <i class="fa fa-user" aria-hidden="true"></i></span>
-                            <input type="text" id="Name" class="controls" name="Name" required>
+                            </label>
+                        </div>
+                        <div class="wheel-price">
+                            <label for="input-val11">
+                                <span>Mobile No  &nbsp; <i class="fa fa-mobile" aria-hidden="true"></i></span>
+                                <input type="text" id="MobileNo" class="controls form-control" name="MobileNo" required>
 
+                            </label>
+                        </div>
+                        <label for="input-val18" class="promo promo2">
+                            <input type="submit" class="wheel-btn" id="input-val18" />
                         </label>
-                    </div>
-                    <div class="wheel-price">
-                        <label for="input-val11">
-                            <span>Mobile No  &nbsp; <i class="fa fa-mobile" aria-hidden="true"></i></span>
-                            <input type="text" id="MobileNo" class="controls" name="MobileNo" required>
+                    </form>
+                </div>
 
-                        </label>
-                    </div>
-                    <label for="input-val18" class="promo promo2">
-                        @*<button class="wheel-btn" id="input-val18">Search</button>*@
-                        <input type="submit" class="wheel-btn" id="input-val18" />
-                    </label>
-                </form>
             </div>
-
+            <div class="col-lg-6">
+                <header style="position: relative; z-index: 2;">
+                    <img src="~/Content/images/priceTag.jpeg" width="600px" height="593px" />
+                </header>
+            </div>
         </div>
-        <div class="col-lg-6">
-            <header style="position: relative; z-index: 2;">
-                <img src="~/Content/images/priceTag.jpeg" width="600px" height="540px" />
-            </header>
-        </div>
+        @*<div class="col-lg-6">
+                <header style="position: relative; z-index: 2;">
+                    <img src="~/Content/images/priceTag.jpeg" width="600px" height="654px" />
+                </header>
+            </div>*@
     </div>
 </div>
 <!-- ////////////////////////////////////////////////////////////// -->
@@ -238,7 +275,14 @@
                                         {
                                             foreach (var itm in Model.list)
                                             {
-                                                <div class="wheel-collection-item" data-name='@itm.VehicleModel @itm.VehicleName' data-carClass='@itm.VehicleType' data-price='@itm.MinimumFare' data-text='@itm.VehicleDescription' data-bags='2 Bags' data-passenger='@itm.SeatingCapacity' data-speed='5.6/100 MPG' data-img='@itm.VehiclePhoto.Replace("~","")'><img src="@itm.VehiclePhoto.Replace("~","")" height="69px" width="141px" alt="Vehicle Photo"></div>
+                                                if (!String.IsNullOrEmpty(itm.VehiclePhoto))
+                                                {
+                                                    <div class="wheel-collection-item" data-name='@itm.VehicleModel @itm.VehicleName' data-carClass='@itm.VehicleType' data-price='@itm.MinimumFare' data-text='@itm.VehicleDescription' data-bags='2 Bags' data-passenger='@itm.SeatingCapacity' data-speed='5.6/100 MPG' data-img='@itm.VehiclePhoto.Replace("~", "")'><img src="@itm.VehiclePhoto.Replace("~", "")" height="69px" width="141px" alt="Vehicle Photo"></div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="wheel-collection-item" data-name='@itm.VehicleModel @itm.VehicleName' data-carClass='@itm.VehicleType' data-price='@itm.MinimumFare' data-text='@itm.VehicleDescription' data-bags='2 Bags' data-passenger='@itm.SeatingCapacity' data-speed='5.6/100 MPG' data-img=''><img src="" height="69px" width="141px" alt="Vehicle Photo"></div>
+                                                }
                                             }
                                         }
                                     </div>
@@ -256,7 +300,14 @@
                                         {
                                             foreach (var itm in Model.list)
                                             {
-                                                <div class="wheel-collection-item" data-name='@itm.VehicleModel @itm.VehicleName' data-carClass='@itm.VehicleType' data-price='@itm.MinimumFare' data-text='@itm.VehicleDescription' data-bags='2 Bags' data-passenger='@itm.SeatingCapacity' data-speed='5.6/100 MPG' data-img='@itm.VehiclePhoto.Replace("~","")'><img src="@itm.VehiclePhoto.Replace("~","")" height="69px" width="141px" alt="Vehicle Photo"></div>
+                                                if (!String.IsNullOrEmpty(itm.VehiclePhoto))
+                                                {
+                                                    <div class="wheel-collection-item" data-name='@itm.VehicleModel @itm.VehicleName' data-carClass='@itm.VehicleType' data-price='@itm.MinimumFare' data-text='@itm.VehicleDescription' data-bags='2 Bags' data-passenger='@itm.SeatingCapacity' data-speed='5.6/100 MPG' data-img='@itm.VehiclePhoto.Replace("~", "")'><img src="@itm.VehiclePhoto.Replace("~", "")" height="69px" width="141px" alt="Vehicle Photo"></div>
+                                                }
+                                                else
+                                                {
+                                                    <div class="wheel-collection-item" data-name='@itm.VehicleModel @itm.VehicleName' data-carClass='@itm.VehicleType' data-price='@itm.MinimumFare' data-text='@itm.VehicleDescription' data-bags='2 Bags' data-passenger='@itm.SeatingCapacity' data-speed='5.6/100 MPG' data-img=''><img src="" height="69px" width="141px" alt="Vehicle Photo"></div>
+                                                }
                                             }
                                         }
                                     </div>
@@ -488,6 +539,14 @@
 
 <script>
 
+    $(document).ready(function () {
+
+        if ('@TempData["msg"]' != '') {
+            swal("", "@TempData["msg"]", "success");
+        }
+
+    })
+
     $(document).on('keypress', '#dropping', function () {
         debugger;
         var id = this.id;
@@ -509,8 +568,8 @@
                         response($.map(data, function (item) {
                             debugger;
                             return {
-                                label: item
-                                //val: item.EmployeeId
+                                label: item.formatted,
+                                val: item.lat + ',' + item.lon
                             };
 
                         }))
@@ -523,8 +582,9 @@
             },
             select: function (e, g) {
                 debugger;
-                $('#EmployeeId_' + index).val(0);
-                $('#EmployeeId_' + index).val(g.item.val);
+                //$('#EmployeeId_' + index).val(0);
+                //$('#EmployeeId_' + index).val(g.item.val);
+                $("#dlat").val(g.item.val);
             },
             minLength: 1,
             messages: {
@@ -554,8 +614,8 @@
                         response($.map(data, function (item) {
                             debugger;
                             return {
-                                label: item
-                                //val: item.EmployeeId
+                                label: item.formatted,
+                                val: item.lat + ',' + item.lon
                             };
 
                         }))
@@ -568,8 +628,7 @@
             },
             select: function (e, g) {
                 debugger;
-                $('#EmployeeId_' + index).val(0);
-                $('#EmployeeId_' + index).val(g.item.val);
+                $("#plat").val(g.item.val);
             },
             minLength: 1,
             messages: {
@@ -578,7 +637,7 @@
         });
     });
 
-    $('#dropping').on("change", function () {
+    @*$('#dropping').on("change", function () {
         var dropping = $('#dropping').val();
 
         if (dropping != null && dropping != "" && dropping != undefined) {
@@ -618,7 +677,7 @@
                 }
             })
         }
-    });
+    });*@
 
     function GetCalculateDistance() {
         debugger;

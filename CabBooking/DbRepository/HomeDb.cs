@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace CabBooking.DbRepository
 {
@@ -20,6 +21,19 @@ namespace CabBooking.DbRepository
                 dynamicParameters.Add("Id", obj.Id);
                 dynamicParameters.Add("ProcId", obj.ProcId);
                 return _dapper.GetAll<T>("Proc_GetAllVehicle", dynamicParameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<SelectListItem> GetVehicles()
+        {
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                return _dapper.GetAll<SelectListItem>("Proc_VehicleDropDown", dynamicParameters);
             }
             catch (Exception ex)
             {

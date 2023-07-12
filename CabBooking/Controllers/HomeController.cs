@@ -81,6 +81,7 @@ namespace CabBooking.Controllers
             MainModel model = new MainModel();
             model.ProcId = 2;
             model.list = homeDb.GetAllVehicle<MainModel>(model);
+            ViewBag.VehiclesList = homeDb.GetVehicles();
             return View(model);
         }
 
@@ -96,6 +97,7 @@ namespace CabBooking.Controllers
                 model.ProcId = 2;
                 model.list = homeDb.GetAllVehicle<MainModel>(model);
                 CreateResponse("Index", "Home", obj.msg, ResponseType.Success);
+                TempData["msg"] = obj.msg;
             }
             return View(model);
         }
@@ -299,7 +301,11 @@ namespace CabBooking.Controllers
                         {
 
                             var locations = result.features;
-                            List<string> addressSuggestions = locations.Select(l => l.properties.name+","+l.properties.village + ", " + l.properties.city + ", " + l.properties.county + " " + l.properties.state_district+","+l.properties.state+","+l.properties.country).ToList();
+
+                            var addressSuggestions = (from N in locations
+                                        select new { N.properties.formatted, N.properties.lat, N.properties.lon });
+
+                            //List<string> addressSuggestions = locations.Select(l => l.properties.name+","+l.properties.village + ", " + l.properties.city + ", " + l.properties.county + " " + l.properties.state_district+","+l.properties.state+","+l.properties.country).ToList();
 
                             return Json(addressSuggestions, JsonRequestBehavior.AllowGet);
                         }
