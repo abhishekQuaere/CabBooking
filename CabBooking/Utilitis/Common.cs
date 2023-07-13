@@ -22,7 +22,7 @@ public class Common
 {
     //public Common()
     //{
-        
+
     //}
 
     public static String GetIPAddress()
@@ -182,7 +182,7 @@ public class Common
 
                         //string firstLine = "JFIF";
 
-                        if ((firstLine.IndexOf("JFIF") > -1) || (firstLine.IndexOf("Exif") > -1))
+                        if ((firstLine.IndexOf("JFIF") > -1) || (firstLine.IndexOf("Exif") > -1) || (firstLine.IndexOf("RIFF") > -1))
                         {
 
                             if (Uploadedfile.ContentLength <= 1024 * ImageSize)
@@ -269,7 +269,7 @@ public class Common
 
     #region  convert in Hashcode
     public string SingleHashing(string value)
-    {      
+    {
         string hashCode = "";
         hashCode = System.Web.Security.FormsAuthentication.HashPasswordForStoringInConfigFile(value, "MD5");
         return hashCode;
@@ -293,7 +293,7 @@ public class Common
     /// <param name="KeyId"></param>
     /// <param name="subKeyId"></param>
     /// <returns></returns>
-    
+
 
     //for Get MimeType of uploaded document 
     public string GetMimeType(string extension)
@@ -406,7 +406,7 @@ public class RandomPassword
         // Create a local array containing supported password characters
         // grouped by types. You can remove character groups from this
         // array, but doing so will weaken the password strength.
-        char[][] charGroups = new char[][] 
+        char[][] charGroups = new char[][]
         {
             PASSWORD_CHARS_LCASE.ToCharArray(),
             PASSWORD_CHARS_UCASE.ToCharArray(),

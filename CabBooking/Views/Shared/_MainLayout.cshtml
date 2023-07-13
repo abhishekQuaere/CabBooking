@@ -21,6 +21,8 @@
     <!-- preload -->
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/loaders.min.css">
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/index.css">
+    <link href="~/Content/assets/css/jquery-confirm.css" rel="stylesheet" />
+    <link href="~/Content/assets/css/sweetalert.min.css" rel="stylesheet" />
     <!--[if lt IE 9]>
     <script src="assets/js/html5shiv.min.js"></script>
     <script src="assets/js/respond.min.js"></script>
@@ -30,10 +32,10 @@
 <body class="">
     <!-- MAIN -->
     <div class="load-wrap">
-            <div class="wheel-load">
-                <img src="~/Content/images/loader.gif" alt="" class="image">
-            </div>
+        <div class="wheel-load">
+            <img src="~/Content/images/loader.gif" alt="" class="image">
         </div>
+    </div>
     <div class="wheel-menu-wrap ">
         <div class="container-fluid wheel-bg1">
             <div class="row">
@@ -46,19 +48,19 @@
                     <div class="wheel-top-menu clearfix">
                         <div class="wheel-top-menu-info">
                             <div class="top-menu-item"><a href="#"><i class="fa fa-phone"></i><span>(+91) 9140093746</span></a></div>
-                            <div class="top-menu-item"><a href="#"><i class="fa fa-envelope"></i><span>abhishek@gmail.com</span></a></div>
+                            <div class="top-menu-item"><a href="#"><i class="fa fa-envelope"></i><span>abhishekojha271@gmail.com</span></a></div>
                         </div>
                         <div class="wheel-top-menu-log">
                             <div class="top-menu-item">
                                 <div class="dropdown wheel-user-ico">
-                                    @*<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        Account
-                                        <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="register.html">Login</a></li>
-                                        <li><a href="register.html">Register</a></li>
-                                    </ul>*@
+                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                            Account
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Login</a></li>
+                                            <li><a href="#">Register</a></li>
+                                        </ul>
                                 </div>
                             </div>
                         </div>
@@ -73,28 +75,32 @@
                                     <a href="@Url.Action("Index","Home")">Home</a>
 
                                 </li>
+                                <li class="menu-item   current-menu-parent menu-item-has-children">
+                                    <a href="#">About Us</a>
+
+                                </li>
                                 <!--<li class="menu-item current-menu-parent menu-item-has-children  ">
                                     <a href="#"> Listing </a>-->
-                                    <!--class=" dl-submenu "-->
-                                    <!--<ul class="sub-menu dl-submenu">
+                                <!--class=" dl-submenu "-->
+                                <!--<ul class="sub-menu dl-submenu">
                                         <li class="menu-item current-menu-item">
                                             <a href="car-listing-details.html">car listing details</a>
                                         </li>
                                     </ul>
                                 </li>-->
                                 @*<li class="menu-item   ">
-                                    <a href="reservation1.html">Reservation</a>
-                                </li>
-                                <li class="menu-item menu-item-has-children  ">
-                                    <a href="#">Pages</a>
-                                    <ul class="sub-menu">
-                                        <li class="menu-item "><a href="contact.html">contact</a></li>
-                                        <li class="menu-item "><a href="register.html">Register</a></li>
-                                        <li class="menu-item "><a href="checkout.html">Ceckout</a></li>
-                                        <li class="menu-item "><a href="about.html">About</a></li>
+                                        <a href="reservation1.html">Reservation</a>
+                                    </li>
+                                    <li class="menu-item menu-item-has-children  ">
+                                        <a href="#">Pages</a>
+                                        <ul class="sub-menu">
+                                            <li class="menu-item "><a href="contact.html">contact</a></li>
+                                            <li class="menu-item "><a href="register.html">Register</a></li>
+                                            <li class="menu-item "><a href="checkout.html">Ceckout</a></li>
+                                            <li class="menu-item "><a href="about.html">About</a></li>
 
-                                    </ul>
-                                </li>*@
+                                        </ul>
+                                    </li>*@
 
                             </ul>
                             <div class="nav-menu-icon"><i></i></div>
@@ -123,7 +129,7 @@
                                 </span>
                             </li>
                             <li><a href="#"><span><i class="fa fa-phone"></i> +91 9140093746</span></a></li>
-                            <li><a href="#"><span><i class="fa fa-envelope"></i>abhishek@gmail.com</span></a></li>
+                            <li><a href="#"><span><i class="fa fa-envelope"></i>abhishekojha271@gmail.com</span></a></li>
                         </ul>
                         <div class="wheel-soc">
                             <a href="#" class="fa fa-twitter"></a>
@@ -166,12 +172,14 @@
         </div>
     </footer>
     <!-- Scripts project -->
+    <script src="~/Content/assets/js/jquery-confirm.min.js"></script>
+    <script src="~/Content/assets/js/sweetalert.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/builder.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/dragble.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/bootstrap.min.js"></script>
     <!-- count -->
     <script type="text/javascript" src='~/Content/assets/js/jquery.countTo.js'></script>
-    
+
     <!-- swiper -->
     <script type="text/javascript" src="~/Content/assets/js/idangerous.swiper.min.js"></script>
     <script type="text/javascript" src="~/Content/assets/js/equalHeightsPlugin.js"></script>

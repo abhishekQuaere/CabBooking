@@ -96,7 +96,14 @@ namespace CabBooking.Controllers
             {
                 model.ProcId = 2;
                 model.list = homeDb.GetAllVehicle<MainModel>(model);
-                CreateResponse("Index", "Home", obj.msg, ResponseType.Success);
+                if (!String.IsNullOrEmpty(obj.msg))
+                {
+                    TempData["response"] = "success";
+                }
+                else {
+                    TempData["response"] = "error";
+                }
+                //CreateResponse("Index", "Home", obj.msg, ResponseType.Success);
                 TempData["msg"] = obj.msg;
             }
             return View(model);
