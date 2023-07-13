@@ -5,6 +5,20 @@
 }
 
 <style>
+    @@media only screen and (max-width: 400px) {
+        ul#ui-id-1 {
+            top: 421px;
+            left: 24px!important;
+            width: 350px;
+        }
+
+        ul#ui-id-12 {
+            top: 421px;
+            left: 24px!important;
+            width: 350px;
+        }
+}
+
     .wheel-collection-item img {
         padding-top: 0px;
         display: inline-block;
@@ -427,7 +441,7 @@
     })
 
     $(document).on('keypress', '#dropping', function () {
-        debugger;
+       /* debugger;*/
         var id = this.id;
         var splitid = id.split('_');
         var index = splitid[1];
@@ -436,16 +450,16 @@
         $('#dropping').autocomplete({
             //source: EmployeeTags
             source: function (request, response) {
-                debugger;
+                /*debugger;*/
                 $.ajax({
                     url: "@Url.Action("getAddress", "Home")",
                     type: "POST",
                     dataType: "json",
                     data: { term: request.term.toUpperCase() },
                     success: function (data) {
-                        debugger;
+                       /* debugger;*/
                         response($.map(data, function (item) {
-                            debugger;
+                            /*debugger;*/
                             return {
                                 label: item.formatted,
                                 val: item.lat + ',' + item.lon
@@ -460,7 +474,7 @@
                 })
             },
             select: function (e, g) {
-                debugger;
+               /* debugger;*/
                 //$('#EmployeeId_' + index).val(0);
                 //$('#EmployeeId_' + index).val(g.item.val);
                 $("#dlat").val(g.item.val);
@@ -473,7 +487,7 @@
     });
 
     $(document).on('keypress', '#picking', function () {
-        debugger;
+       /* debugger;*/
         var id = this.id;
         var splitid = id.split('_');
         var index = splitid[1];
@@ -482,7 +496,7 @@
         $('#picking').autocomplete({
             //source: EmployeeTags
             source: function (request, response) {
-                debugger;
+                /*debugger;*/
                 $.ajax({
                     url: "@Url.Action("getAddress", "Home")",
                     type: "POST",
@@ -506,7 +520,7 @@
                 })
             },
             select: function (e, g) {
-                debugger;
+                /*debugger;*/
                 $("#plat").val(g.item.val);
             },
             minLength: 1,
