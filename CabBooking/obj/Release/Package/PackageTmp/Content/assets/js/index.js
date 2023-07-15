@@ -213,8 +213,8 @@ $('.wheel-table-cart .fa-times').on('click', function (e) {
     }
 
     // home active care
-    $('.wheel-collection').on('click', '.wheel-collection-item', function () {
-        debugger;
+    $('.wheel-collection').on('click', '.wheel-collection-item', function() {
+
         var activeCar = $('.wheel-collection-text'),
             activeCarImg = $('.wheel-collection-img  .car-img'),
             valueName = $(this).attr('data-name'),
@@ -234,7 +234,6 @@ $('.wheel-table-cart .fa-times').on('click', function (e) {
         activeCar.find('.car-bags').text(valueBags)
         activeCar.find('.car-passengers').text(valuePassenger)
         activeCar.find('.car-speed').text(valueSpeed)
-        activeCar.find('.car-Price').text(valuePrice)
         activeCarImg.attr('src', valueImg)
 
         $(this).parents('.swiper-container').find('.wheel-collection-item').removeClass('active-car')
@@ -575,65 +574,65 @@ $('.wheel-table-cart .fa-times').on('click', function (e) {
         });
     }
 
-    //function initialize(_this) {
+    function initialize(_this) {
 
-    //    var stylesArray = {
-    //        //style 1
-    //        'style-1': [{ "featureType": "landscape", "stylers": [{ "hue": "#FFBB00" }, { "saturation": 43.400000000000006 }, { "lightness": 37.599999999999994 }, { "gamma": 1 }] }, { "featureType": "road.highway", "stylers": [{ "hue": "#FFC200" }, { "saturation": -61.8 }, { "lightness": 45.599999999999994 }, { "gamma": 1 }] }, { "featureType": "road.arterial", "stylers": [{ "hue": "#FF0300" }, { "saturation": -100 }, { "lightness": 51.19999999999999 }, { "gamma": 1 }] }, { "featureType": "road.local", "stylers": [{ "hue": "#FF0300" }, { "saturation": -100 }, { "lightness": 52 }, { "gamma": 1 }] }, { "featureType": "water", "stylers": [{ "hue": "#0078FF" }, { "saturation": -13.200000000000003 }, { "lightness": 2.4000000000000057 }, { "gamma": 1 }] }, { "featureType": "poi", "stylers": [{ "hue": "#00FF6A" }, { "saturation": -1.0989010989011234 }, { "lightness": 11.200000000000017 }, { "gamma": 1 }] }]
-    //    };
+        var stylesArray = {
+            //style 1
+            'style-1': [{ "featureType": "landscape", "stylers": [{ "hue": "#FFBB00" }, { "saturation": 43.400000000000006 }, { "lightness": 37.599999999999994 }, { "gamma": 1 }] }, { "featureType": "road.highway", "stylers": [{ "hue": "#FFC200" }, { "saturation": -61.8 }, { "lightness": 45.599999999999994 }, { "gamma": 1 }] }, { "featureType": "road.arterial", "stylers": [{ "hue": "#FF0300" }, { "saturation": -100 }, { "lightness": 51.19999999999999 }, { "gamma": 1 }] }, { "featureType": "road.local", "stylers": [{ "hue": "#FF0300" }, { "saturation": -100 }, { "lightness": 52 }, { "gamma": 1 }] }, { "featureType": "water", "stylers": [{ "hue": "#0078FF" }, { "saturation": -13.200000000000003 }, { "lightness": 2.4000000000000057 }, { "gamma": 1 }] }, { "featureType": "poi", "stylers": [{ "hue": "#00FF6A" }, { "saturation": -1.0989010989011234 }, { "lightness": 11.200000000000017 }, { "gamma": 1 }] }]
+        };
 
-    //    var styles, map, marker, infowindow,
-    //        lat = $(_this).attr("data-lat"),
-    //        lng = $(_this).attr("data-lng"),
-    //        contentString = $(_this).attr("data-string"),
-    //        image = $(_this).attr("data-marker"),
-    //        styles_attr = $(_this).attr("data-style"),
-    //        zoomLevel = parseInt($(_this).attr("data-zoom"), 10),
-    //        myLatlng = new google.maps.LatLng(lat, lng);
+        var styles, map, marker, infowindow,
+            lat = $(_this).attr("data-lat"),
+            lng = $(_this).attr("data-lng"),
+            contentString = $(_this).attr("data-string"),
+            image = $(_this).attr("data-marker"),
+            styles_attr = $(_this).attr("data-style"),
+            zoomLevel = parseInt($(_this).attr("data-zoom"), 10),
+            myLatlng = new google.maps.LatLng(lat, lng);
 
 
-    //    // style_1
-    //    if (styles_attr == 'style-1') {
-    //        styles = stylesArray[styles_attr];
-    //    }
-    //    // custom
-    //    if (typeof hawa_style_map != 'undefined' && styles_attr == 'custom') {
-    //        styles = hawa_style_map;
-    //    }
-    //    // or default style
+        // style_1
+        if (styles_attr == 'style-1') {
+            styles = stylesArray[styles_attr];
+        }
+        // custom
+        if (typeof hawa_style_map != 'undefined' && styles_attr == 'custom') {
+            styles = hawa_style_map;
+        }
+        // or default style
 
-    //    var styledMap = new google.maps.StyledMapType(styles, { name: "Styled Map" });
+        var styledMap = new google.maps.StyledMapType(styles, { name: "Styled Map" });
 
-    //    var mapOptions = {
-    //        zoom: zoomLevel,
-    //        disableDefaultUI: true,
-    //        center: myLatlng,
-    //        scrollwheel: false,
-    //        mapTypeControlOptions: {
-    //            mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
-    //        }
-    //    };
+        var mapOptions = {
+            zoom: zoomLevel,
+            disableDefaultUI: true,
+            center: myLatlng,
+            scrollwheel: false,
+            mapTypeControlOptions: {
+                mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+            }
+        };
 
-    //    map = new google.maps.Map(_this, mapOptions);
+        map = new google.maps.Map(_this, mapOptions);
 
-    //    map.mapTypes.set('map_style', styledMap);
-    //    map.setMapTypeId('map_style');
+        map.mapTypes.set('map_style', styledMap);
+        map.setMapTypeId('map_style');
 
-    //    infowindow = new google.maps.InfoWindow({
-    //        content: contentString
-    //    });
+        infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
 
-    //    marker = new google.maps.Marker({
-    //        position: myLatlng,
-    //        map: map,
-    //        icon: image
-    //    });
+        marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            icon: image
+        });
 
-    //    google.maps.event.addListener(marker, 'click', function() {
-    //        infowindow.open(map, marker);
-    //    });
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map, marker);
+        });
 
-    //}
+    }
 
     // video size
     function videoSize() {
