@@ -61,5 +61,20 @@ namespace CabBooking.DbRepository
                 throw ex;
             }
         }
+
+        public T CheckLoginType<T>(account obj)
+        {
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("UserId", obj.LoginId);
+                dynamicParameters.Add("password", obj.password);                
+                return _dapper.ExecuteGet<T>("Proc_CheckLoginType", dynamicParameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

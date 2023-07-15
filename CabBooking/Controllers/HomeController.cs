@@ -1,5 +1,6 @@
 ﻿using CabBooking.DbRepository;
 using CabBooking.Models;
+using CabBooking.Utilities;
 using Newtonsoft.Json;
 using RestSharp;
 using System;
@@ -14,7 +15,7 @@ namespace CabBooking.Controllers
     public class HomeController : Controller
     {
         HomeDb homeDb = new HomeDb();
-
+        SessionManager sm = new SessionManager();
 
         #region CreateResponse
         /// <summary>
@@ -86,7 +87,7 @@ namespace CabBooking.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(MainModel model) 
+        public ActionResult Index(MainModel model)
         {
             //string Price = model.TotalPrices.Replace("₹", "");
             //model.TotalPrices = Price;
@@ -101,7 +102,8 @@ namespace CabBooking.Controllers
                 {
                     TempData["response"] = "success";
                 }
-                else {
+                else
+                {
                     TempData["response"] = "error";
                 }
                 //CreateResponse("Index", "Home", obj.msg, ResponseType.Success);
@@ -211,7 +213,7 @@ namespace CabBooking.Controllers
                         string content = reader.ReadToEnd();
 
                         var result = JsonConvert.DeserializeObject<Root>(content);
-                  
+
                         if (result.results.Count > 0)
                         {
                             double latitude = result.results[0].locations[0].displayLatLng.lat;
@@ -219,7 +221,7 @@ namespace CabBooking.Controllers
 
                             // Do something with the latitude and longitude
                             obj.lat = latitude;
-                            obj.lng= longitude;
+                            obj.lng = longitude;
                         }
                         else
                         {
@@ -311,7 +313,7 @@ namespace CabBooking.Controllers
                             var locations = result.features;
 
                             var addressSuggestions = (from N in locations
-                                        select new { N.properties.formatted, N.properties.lat, N.properties.lon });
+                                                      select new { N.properties.formatted, N.properties.lat, N.properties.lon });
 
                             //List<string> addressSuggestions = locations.Select(l => l.properties.name+","+l.properties.village + ", " + l.properties.city + ", " + l.properties.county + " " + l.properties.state_district+","+l.properties.state+","+l.properties.country).ToList();
 
@@ -334,12 +336,47 @@ namespace CabBooking.Controllers
             return Json("", JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult GetCalculateDistance(LatLng source,LatLng destination)
+        public JsonResult GetCalculateDistance(LatLng source, LatLng destination)
         {
             DistanceCalculator distanceCalculator = new DistanceCalculator();
-            var distance = distanceCalculator.CalculateDistance(source , destination);
+            var distance = distanceCalculator.CalculateDistance(source, destination);
             return Json(distance.ToString("#.##"), JsonRequestBehavior.AllowGet);
         }
+
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        public ActionResult Login(account model)
+        {
+            if (!String.IsNullOrEmpty(model.LoginId) && !String.IsNullOrEmpty(model.password))
+            {
+               var res = homeDb.CheckLoginType<account>(model);
+                if (res.flag == 1)
+                {
+                    CreateResponse("Index", "home", res.msg, ResponseType.Error);
+                }
+                else
+                {
+                    sm.userId = res.id;
+                    sm.roleName = res.rolename;
+                    return RedirectToAction("Dashboard", "Admin");
+                }
+            }
+            return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            Session.Abandon();
+            Session.RemoveAll();
+            Session.Clear();
+            return RedirectToAction("Index");
+        }
+
     }
 
 }

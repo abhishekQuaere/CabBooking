@@ -171,6 +171,7 @@
     <Compile Include="DBContext\DapperDbContext.cs" />
     <Compile Include="DbRepository\AdminDb.cs" />
     <Compile Include="DbRepository\HomeDb.cs" />
+    <Compile Include="Filters\Authorization.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,6 +185,7 @@
     <Compile Include="Models\ResultSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilitis\Common.cs" />
+    <Compile Include="Utilitis\SessionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Admin\css\animate_page.css" />
@@ -451,6 +453,7 @@
     <Content Include="Views\Admin\_ProductPictures.cshtml" />
     <Content Include="Views\Admin\AllFare.cshtml" />
     <Content Include="Views\Home\getAddress.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

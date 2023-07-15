@@ -139,7 +139,7 @@ namespace CabBooking.Models
         }
 
 
-        
+
     }
 
     public class Datasource
@@ -227,4 +227,13 @@ namespace CabBooking.Models
         public string abbreviation_DST { get; set; }
     }
 
+    public class account
+    {
+        public string LoginId { get; set; }
+        public string password { get; set; }
+        public string rolename { get; set; }
+        public long id { get; set; }
+        public int flag { get; set; }
+        public string msg { get; set; }
+    }
 }

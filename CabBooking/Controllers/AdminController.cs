@@ -1,5 +1,6 @@
 ﻿using CabBooking.DbRepository;
 using CabBooking.Models;
+using PharmacyApplication.Filters;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +12,7 @@ using System.Web.Mvc;
 
 namespace CabBooking.Controllers
 {
+    [AuthorizeAdmin]
     public class AdminController : Controller
     {
         // GET: Admin
