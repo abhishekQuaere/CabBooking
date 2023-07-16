@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Web.Hosting;
 using System.Web.Mvc;
 
 namespace CabBooking.Controllers
@@ -97,6 +98,7 @@ namespace CabBooking.Controllers
             if (obj.flag == 1)
             {
                 model.ProcId = 2;
+                sendEmail("Support@fastyatra.com", model.Name, model.MobileNo);
                 model.list = homeDb.GetAllVehicle<MainModel>(model);
                 if (!String.IsNullOrEmpty(obj.msg))
                 {
@@ -292,45 +294,51 @@ namespace CabBooking.Controllers
         {
             string apiKey = "16c6b62bcedf492e923e0cfa39d58db9";
             string apiUrl = $"https://api.geoapify.com/v1/geocode/autocomplete?text={term}&apiKey={apiKey}";
-
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
-            request.Method = "GET";
-
-            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            try
             {
-                if (response.StatusCode == HttpStatusCode.OK)
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+                request.Method = "GET";
+
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
-                    using (Stream stream = response.GetResponseStream())
+                    if (response.StatusCode == HttpStatusCode.OK)
                     {
-                        StreamReader reader = new StreamReader(stream);
-                        string content = reader.ReadToEnd();
-
-                        var result = JsonConvert.DeserializeObject<RootV2>(content);
-
-                        if (result.features.Count > 0)
+                        using (Stream stream = response.GetResponseStream())
                         {
+                            StreamReader reader = new StreamReader(stream);
+                            string content = reader.ReadToEnd();
 
-                            var locations = result.features;
+                            var result = JsonConvert.DeserializeObject<RootV2>(content);
 
-                            var addressSuggestions = (from N in locations
-                                                      select new { N.properties.formatted, N.properties.lat, N.properties.lon });
+                            if (result.features.Count > 0)
+                            {
 
-                            //List<string> addressSuggestions = locations.Select(l => l.properties.name+","+l.properties.village + ", " + l.properties.city + ", " + l.properties.county + " " + l.properties.state_district+","+l.properties.state+","+l.properties.country).ToList();
+                                var locations = result.features;
 
-                            return Json(addressSuggestions, JsonRequestBehavior.AllowGet);
-                        }
-                        else
-                        {
-                            // Address not found
-                            ViewBag.Error = "Address not found";
+                                var addressSuggestions = (from N in locations
+                                                          select new { N.properties.formatted, N.properties.lat, N.properties.lon });
+
+                                //List<string> addressSuggestions = locations.Select(l => l.properties.name+","+l.properties.village + ", " + l.properties.city + ", " + l.properties.county + " " + l.properties.state_district+","+l.properties.state+","+l.properties.country).ToList();
+
+                                return Json(addressSuggestions, JsonRequestBehavior.AllowGet);
+                            }
+                            else
+                            {
+                                // Address not found
+                                ViewBag.Error = "Address not found";
+                            }
                         }
                     }
+                    else
+                    {
+                        // Handle API error
+                        ViewBag.Error = "Failed to retrieve coordinates";
+                    }
                 }
-                else
-                {
-                    // Handle API error
-                    ViewBag.Error = "Failed to retrieve coordinates";
-                }
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
             }
 
             return Json("", JsonRequestBehavior.AllowGet);
@@ -376,6 +384,25 @@ namespace CabBooking.Controllers
             Session.Clear();
             return RedirectToAction("Index");
         }
+
+        public void sendEmail(string email, string UserId, string Pass)
+        {
+            string MessageBody = getMessageBody( UserId, Pass);
+            string subject = "New Booking";
+            Mail.SendEmailMessag(email, subject, MessageBody);
+            //return Json(otp, JsonRequestBehavior.AllowGet);
+        }
+
+        public String getMessageBody( string UserId, string Pass)
+        {
+            StreamReader rd = new StreamReader(HostingEnvironment.MapPath(@"~/EmailTemplates/EmailRemplates.html"));
+            string msgBody = rd.ReadToEnd();
+            msgBody = msgBody.Replace("[User]", "Kapil Tripathi");
+            msgBody = msgBody.Replace("[UserId]", UserId);
+            msgBody = msgBody.Replace("[Password]", Pass);
+            return msgBody;
+        }
+
 
     }
 

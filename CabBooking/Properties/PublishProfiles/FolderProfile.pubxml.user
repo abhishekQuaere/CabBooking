@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <_PublishTargetUrl>E:\CabBooking_publish</_PublishTargetUrl>
-    <History>True|2023-07-15T08:44:37.9232519Z;</History>
+    <History>True|2023-07-16T07:03:24.1487877Z;True|2023-07-15T14:14:37.9232519+05:30;</History>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Antlr3.Runtime.dll">
@@ -15,10 +15,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/13/2023 17:49:15</publishTime>
     </File>
     <File Include="bin/CabBooking.dll">
-      <publishTime>07/15/2023 14:14:34</publishTime>
+      <publishTime>07/16/2023 12:33:21</publishTime>
     </File>
     <File Include="bin/CabBooking.pdb">
-      <publishTime>07/15/2023 14:14:34</publishTime>
+      <publishTime>07/16/2023 12:33:21</publishTime>
     </File>
     <File Include="bin/Dapper.dll">
       <publishTime>07/13/2023 17:49:15</publishTime>
@@ -443,6 +443,12 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/Admin/js/theme-color.js">
       <publishTime>07/13/2023 17:49:10</publishTime>
     </File>
+    <File Include="Content/assets/bootstrap-datepicker/bootstrap-datepicker.min.css">
+      <publishTime>05/10/2023 09:31:39</publishTime>
+    </File>
+    <File Include="Content/assets/bootstrap-datepicker/bootstrap-datepicker.min.js">
+      <publishTime>05/10/2023 09:31:39</publishTime>
+    </File>
     <File Include="Content/assets/css/bootstrap-select.min.css">
       <publishTime>05/19/2021 11:20:45</publishTime>
     </File>
@@ -522,7 +528,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>05/19/2021 11:20:45</publishTime>
     </File>
     <File Include="Content/assets/js/index.js">
-      <publishTime>05/19/2021 11:20:45</publishTime>
+      <publishTime>07/16/2023 12:12:08</publishTime>
     </File>
     <File Include="Content/assets/js/jquery-2.2.4.min.js">
       <publishTime>05/19/2021 11:20:45</publishTime>
@@ -860,6 +866,9 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
     <File Include="Content/Site.css">
       <publishTime>07/13/2023 17:49:10</publishTime>
     </File>
+    <File Include="EmailTemplates/EmailRemplates.html">
+      <publishTime>07/16/2023 10:04:03</publishTime>
+    </File>
     <File Include="favicon.ico">
       <publishTime>07/13/2023 17:49:11</publishTime>
     </File>
@@ -954,37 +963,37 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/13/2023 17:49:11</publishTime>
     </File>
     <File Include="Views/Admin/ActiveTrips.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:39:40</publishTime>
     </File>
     <File Include="Views/Admin/AddDriver.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:39:28</publishTime>
     </File>
     <File Include="Views/Admin/AddFare.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:39:16</publishTime>
     </File>
     <File Include="Views/Admin/AddImages.cshtml">
       <publishTime>07/13/2023 17:49:11</publishTime>
     </File>
     <File Include="Views/Admin/AddVehicle.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>01/01/0001 00:00:00</publishTime>
     </File>
     <File Include="Views/Admin/AllDriver.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:38:51</publishTime>
     </File>
     <File Include="Views/Admin/AllFare.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:38:40</publishTime>
     </File>
     <File Include="Views/Admin/AllVehicle.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:38:26</publishTime>
     </File>
     <File Include="Views/Admin/CompleteTrips.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:38:15</publishTime>
     </File>
     <File Include="Views/Admin/Dashboard.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:51:34</publishTime>
     </File>
     <File Include="Views/Admin/FareFailList.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:51:34</publishTime>
     </File>
     <File Include="Views/Admin/_ProductPictures.cshtml">
       <publishTime>07/13/2023 17:49:11</publishTime>
@@ -1002,19 +1011,22 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/13/2023 17:49:11</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>07/15/2023 13:57:33</publishTime>
+      <publishTime>07/16/2023 12:24:25</publishTime>
+    </File>
+    <File Include="Views/Home/Login.cshtml">
+      <publishTime>07/15/2023 21:32:13</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>07/13/2023 17:49:11</publishTime>
     </File>
     <File Include="Views/Shared/_AdminLayout.cshtml">
-      <publishTime>07/13/2023 17:49:11</publishTime>
+      <publishTime>07/15/2023 21:29:24</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
       <publishTime>07/13/2023 17:49:11</publishTime>
     </File>
     <File Include="Views/Shared/_MainLayout.cshtml">
-      <publishTime>07/15/2023 11:41:07</publishTime>
+      <publishTime>07/16/2023 12:07:20</publishTime>
     </File>
     <File Include="Views/Shared/_ResponseMessage.cshtml">
       <publishTime>07/13/2023 17:49:11</publishTime>
@@ -1026,7 +1038,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>07/13/2023 17:49:11</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>07/15/2023 14:14:35</publishTime>
+      <publishTime>07/16/2023 12:33:22</publishTime>
     </File>
   </ItemGroup>
 </Project>

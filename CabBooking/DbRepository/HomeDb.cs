@@ -53,6 +53,10 @@ namespace CabBooking.DbRepository
                 dynamicParameters.Add("TotalPrices", obj.TotalPrices);
                 dynamicParameters.Add("Name", obj.Name);
                 dynamicParameters.Add("MobileNo", obj.MobileNo);
+                dynamicParameters.Add("PickupDate", obj.PickupDate);
+                dynamicParameters.Add("PickupTime", obj.PickupTime);
+                dynamicParameters.Add("ReturnDate", obj.ReturnDate);
+                dynamicParameters.Add("ReturnTime", obj.ReturnTime);
                 
                 return _dapper.ExecuteGet<T>("Proc_AddBooking", dynamicParameters);
             }

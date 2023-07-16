@@ -39,19 +39,17 @@
             i18n: {
                 de: {
                     months: [
-                        'Januar', 'Februar', 'März', 'April',
-                        'Mai', 'Juni', 'Juli', 'August',
-                        'September', 'Oktober', 'November', 'Dezember',
+                        'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September', 'October', 'November', 'December',
                     ],
                     dayOfWeek: [
-                        "So.", "Mo", "Di", "Mi",
-                        "Do", "Fr", "Sa.",
+                        "Sunday", "Monday", "Tuesday", "Wednesday",
+                        "Thursday", "Friday", "Saturday",
                     ]
                 }
             },
             timepicker: false,
 
-            format: 'd.m'
+            format: 'd.m.y'
         });
     }
 

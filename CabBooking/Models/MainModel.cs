@@ -32,6 +32,10 @@ namespace CabBooking.Models
         public string TotalPrices { get; set; }
         public string Name { get; set; }
         public string MobileNo { get; set; }
+        public string PickupDate { get; set; }
+        public string PickupTime { get; set; }
+        public string ReturnDate { get; set; }
+        public string ReturnTime { get; set; }
         public List<MainModel> list { get; set; }
     }
 

@@ -548,4 +548,3 @@ E:\CabBooking\CabBooking\obj\Debug\CabBooking.csproj.CoreCompileInputs.cache
 E:\CabBooking\CabBooking\obj\Debug\CabBooking.csproj.CopyComplete
 E:\CabBooking\CabBooking\obj\Debug\CabBooking.dll
 E:\CabBooking\CabBooking\obj\Debug\CabBooking.pdb
-E:\CabBooking\CabBooking\obj\Debug\CabBooking.csproj.AssemblyReference.cache

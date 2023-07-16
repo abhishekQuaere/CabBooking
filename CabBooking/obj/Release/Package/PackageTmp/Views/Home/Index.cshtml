@@ -8,6 +8,7 @@
     .wheel-start:after {
         background-color: #f9b931 !important;
     }
+
     .wheel-start-form .wheel-date label:after {
         display: none !important;
     }
@@ -16,32 +17,36 @@
         padding: 0 5px !important;
     }
 
-        .autoComplete {
-            width: 49% !important;
-        }
+    .autoComplete {
+        width: 49% !important;
+    }
+
     .wheel-start-form2 label.promo {
         float: right !important;
     }
+
     @@media only screen and (max-width: 600px) {
         .wheel-start-form label input {
             width: 55% !important;
         }
     }
+
     @@media only screen and (max-width: 480px) {
         .wheel-start-form label span {
             width: 24%;
         }
     }
-/*    @@media only screen and (max-width: 480px) {
+    /*    @@media only screen and (max-width: 480px) {
         .wheel-date span {
             width: 25% !important;
         }
     }*/
     @@media only screen and (max-width: 768px) {
         .wheel-date, .wheel-start-form label.promo input {
-            width: 100%!important;
+            width: 100% !important;
         }
     }
+
     .ui-helper-hidden-accessible {
         border: 0 !important;
         clip: rect(0 0 0 0) !important;
@@ -52,6 +57,9 @@
         position: absolute !important;
         width: 1px !important;
     }
+    .wheel-date {
+        display: flex!important;
+    }
 </style>
 
 <div class="wheel-start wheel-start2">
@@ -59,7 +67,7 @@
     <div class="container padd-lr0">
         <div class="col-lg-12  padd-lr0">
             <div class="wheel-start-form wheel-start-form2 marg-lg-t310   marg-md-t0">
-                <form action="/home/Index"method="post">
+                <form action="/home/Index" method="post">
                     <label for="input-val20">
                         <span>Dropping Off</span>
                         <input type="text" id=input-val20 placeholder="ZIP, City, Airport or Address" name="Source" class="dropping autoComplete" required>
@@ -95,6 +103,31 @@
                             <span>Total K/M</span>
                             <label for="input-val23" class="fa fa-road">
                                 <input class="totalKm" type="text" id=input-val23 disabled>
+                            </label>
+                        </div>
+
+                        <div class="wheel-date">
+                            <span>Pickup Date</span>
+                            <label class="fa fa-calendar" for="input-val22">
+                                <input class="datetimepicker" type="text" id=input-val22 value="" name="PickupDate" required>
+                            </label>
+                        </div>
+                        <div class="wheel-date ">
+                            <span>Pickup time</span>
+                            <label for="input-val23" class="fa fa-clock-o">
+                                <input class="timepicker" type="text" id=input-val23 value="" name="PickupTime" required>
+                            </label>
+                        </div>
+                        <div class="wheel-date">
+                            <span>Return Date</span>
+                            <label class="fa fa-calendar" for="input-val24">
+                                <input class="datetimepicker" type="text" id=input-val24 value="" name="ReturnDate" required>
+                            </label>
+                        </div>
+                        <div class="wheel-date">
+                            <span>Return Time</span>
+                            <label for="input-val25" class="fa fa-clock-o">
+                                <input class="timepicker" type="text" id='input-val25' value=""name="ReturnTime" required>
                             </label>
                         </div>
 
@@ -472,6 +505,9 @@
 
         if ('@TempData["msg"]' != '') {
             swal("", "@TempData["msg"]", "@TempData["response"]");
+        }
+        if ('@ViewBag.Error' != '') {
+            swal("", "@ViewBag.Error", "error");
         }
 
     })
