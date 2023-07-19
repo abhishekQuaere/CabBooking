@@ -78,6 +78,35 @@ namespace CabBooking.Controllers
             TempData.Remove("ResponseType");
         }
         #endregion
+
+        [HttpGet]
+        public ActionResult FastYatra()
+        {
+            NewBooking model = new NewBooking();
+            ViewBag.VehiclesList = homeDb.GetVehicles();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult FastYatra(NewBooking model)
+        {
+            ResultSet obj = new ResultSet();
+            if (!String.IsNullOrEmpty(model.startDest) && !String.IsNullOrEmpty(model.endDest))
+            {
+                ViewBag.VehiclesList = homeDb.GetVehicles();
+                obj = homeDb.NewAddBooking<ResultSet>(model);
+                if (obj.flag == 1)
+                {
+                    CreateResponse("FastYatra", "Home", obj.msg, ResponseType.Success);
+                }
+            }
+            else
+            {
+                CreateResponse("", "", "All fields required !", ResponseType.Success);
+            }
+            return View(model);
+        }
+
         public ActionResult Index()
         {
             MainModel model = new MainModel();
@@ -113,6 +142,7 @@ namespace CabBooking.Controllers
             }
             return View(model);
         }
+
         //public ActionResult GetCoordinates()
         //{
         //    Location model = new Location();
@@ -285,11 +315,6 @@ namespace CabBooking.Controllers
             return Json("", JsonRequestBehavior.AllowGet);
         }
 
-        //public ActionResult getAddress()
-        //{
-        //    return View();
-        //}
-
         public JsonResult getAddress(string term)
         {
             string apiKey = "16c6b62bcedf492e923e0cfa39d58db9";
@@ -356,22 +381,29 @@ namespace CabBooking.Controllers
         {
             return View();
         }
-        
+
         [HttpPost]
         public ActionResult Login(account model)
         {
             if (!String.IsNullOrEmpty(model.LoginId) && !String.IsNullOrEmpty(model.password))
             {
-               var res = homeDb.CheckLoginType<account>(model);
-                if (res.flag == 1)
+                var res = homeDb.CheckLoginType<account>(model);
+                if (res != null)
                 {
-                    CreateResponse("Index", "home", res.msg, ResponseType.Error);
+                    if (res.flag == 1)
+                    {
+                        CreateResponse("Index", "home", res.msg, ResponseType.Error);
+                    }
+                    else
+                    {
+                        sm.userId = res.id;
+                        sm.roleName = res.rolename;
+                        return RedirectToAction("Dashboard", "Admin");
+                    }
                 }
                 else
                 {
-                    sm.userId = res.id;
-                    sm.roleName = res.rolename;
-                    return RedirectToAction("Dashboard", "Admin");
+                    CreateResponse("", "", "Invalid login and password ! Please contact to administrator", ResponseType.Error);
                 }
             }
             return View(model);
@@ -387,13 +419,13 @@ namespace CabBooking.Controllers
 
         public void sendEmail(string email, string UserId, string Pass)
         {
-            string MessageBody = getMessageBody( UserId, Pass);
+            string MessageBody = getMessageBody(UserId, Pass);
             string subject = "New Booking";
             Mail.SendEmailMessag(email, subject, MessageBody);
             //return Json(otp, JsonRequestBehavior.AllowGet);
         }
 
-        public String getMessageBody( string UserId, string Pass)
+        public String getMessageBody(string UserId, string Pass)
         {
             StreamReader rd = new StreamReader(HostingEnvironment.MapPath(@"~/EmailTemplates/EmailRemplates.html"));
             string msgBody = rd.ReadToEnd();
@@ -403,6 +435,61 @@ namespace CabBooking.Controllers
             return msgBody;
         }
 
+        public ActionResult AboutUs()
+        {
+            return View();
+        }
+        
+        public ActionResult AboutCompany()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult BookCab()
+        {
+            NewBooking model = new NewBooking();
+            ViewBag.VehiclesList = homeDb.GetVehicles();
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult BookCab(NewBooking model)
+        {
+            ResultSet obj = new ResultSet();
+            if (!String.IsNullOrEmpty(model.startDest) && !String.IsNullOrEmpty(model.endDest))
+            {
+                ViewBag.VehiclesList = homeDb.GetVehicles();
+                obj = homeDb.NewAddBooking<ResultSet>(model);
+                if (obj.flag == 1)
+                {
+                    CreateResponse("BookCab", "Home", obj.msg, ResponseType.Success);
+                }
+            }
+            else
+            {
+                CreateResponse("", "", "All fields required !", ResponseType.Success);
+            }
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult ContactUs()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ContactUs(ContactUs model)
+        {
+            ResultSet obj = new ResultSet();
+            obj = homeDb.ContactUs<ResultSet>(model);
+            if (obj.flag == 1)
+            {
+                CreateResponse("ContactUs", "Home", obj.msg, ResponseType.Success);
+            }
+            return View(model);
+        }
 
     }
 

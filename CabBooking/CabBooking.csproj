@@ -51,10 +51,28 @@
     <Reference Include="KdTreeLib, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\KdTree.1.4.0\lib\net471\KdTreeLib.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\..\..\PharmacyApp_new\PharmacyApp\PharmacyApplication\bin\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\..\..\PharmacyApp_new\PharmacyApp\PharmacyApplication\bin\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\..\..\PharmacyApp_new\PharmacyApp\PharmacyApplication\bin\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens">
+      <HintPath>..\..\..\PharmacyApp_new\PharmacyApp\PharmacyApplication\bin\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging">
+      <HintPath>..\..\..\PharmacyApp_new\PharmacyApp\PharmacyApplication\bin\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens">
+      <HintPath>..\..\..\PharmacyApp_new\PharmacyApp\PharmacyApplication\bin\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -79,6 +97,9 @@
     <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
@@ -98,12 +119,24 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.9\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.9\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\..\..\PharmacyApp_new\PharmacyApp\PharmacyApplication\bin\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
@@ -166,7 +199,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\WebApiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="DBContext\DapperDbContext.cs" />
     <Compile Include="DbRepository\AdminDb.cs" />
@@ -289,6 +324,7 @@
     <Content Include="Content\images\bg5.jpg" />
     <Content Include="Content\images\bg6.jpg" />
     <Content Include="Content\images\bg7.jpg" />
+    <Content Include="Content\images\blank_img.jpg" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\i1.png" />
     <Content Include="Content\images\i10.jpg" />
@@ -377,6 +413,112 @@
     <Content Include="Content\images\z-car-1.png" />
     <Content Include="Content\images\z-car-2.png" />
     <Content Include="Content\images\z-car-3.png" />
+    <Content Include="Content\NewAssets\css\animate.min.css" />
+    <Content Include="Content\NewAssets\css\blog.css" />
+    <Content Include="Content\NewAssets\css\bootstrap.min.css" />
+    <Content Include="Content\NewAssets\css\draggle.css" />
+    <Content Include="Content\NewAssets\css\elements.css" />
+    <Content Include="Content\NewAssets\css\fontawesome.min.css" />
+    <Content Include="Content\NewAssets\css\header.css" />
+    <Content Include="Content\NewAssets\css\jquery-confirm.css" />
+    <Content Include="Content\NewAssets\css\jquery-ui.css" />
+    <Content Include="Content\NewAssets\css\jquery.datetimepicker.min.css" />
+    <Content Include="Content\NewAssets\css\keyframe-animation.css" />
+    <Content Include="Content\NewAssets\css\line-awesome.min.css" />
+    <Content Include="Content\NewAssets\css\main.css" />
+    <Content Include="Content\NewAssets\css\nice-select.css" />
+    <Content Include="Content\NewAssets\css\responsive.css" />
+    <Content Include="Content\NewAssets\css\slider.css" />
+    <Content Include="Content\NewAssets\css\sweetalert.css" />
+    <Content Include="Content\NewAssets\css\sweetalert.min.css" />
+    <Content Include="Content\NewAssets\css\swiper.min.css" />
+    <Content Include="Content\NewAssets\css\venobox.min.css" />
+    <Content Include="Content\NewAssets\fonts\fa-brands-400.svg" />
+    <Content Include="Content\NewAssets\fonts\fa-regular-400.svg" />
+    <Content Include="Content\NewAssets\fonts\fa-solid-900.svg" />
+    <Content Include="Content\NewAssets\fonts\la-brands-400.svg" />
+    <Content Include="Content\NewAssets\fonts\la-regular-400.svg" />
+    <Content Include="Content\NewAssets\fonts\la-solid-900.svg" />
+    <Content Include="Content\NewAssets\img\about-1.png" />
+    <Content Include="Content\NewAssets\img\about-2.png" />
+    <Content Include="Content\NewAssets\img\about-3.jpg" />
+    <Content Include="Content\NewAssets\img\app-store.svg" />
+    <Content Include="Content\NewAssets\img\auhtor.png" />
+    <Content Include="Content\NewAssets\img\bg-1.jpg" />
+    <Content Include="Content\NewAssets\img\car steering.svg" />
+    <Content Include="Content\NewAssets\img\car-1.png" />
+    <Content Include="Content\NewAssets\img\car-2.png" />
+    <Content Include="Content\NewAssets\img\charecter.png" />
+    <Content Include="Content\NewAssets\img\city-skiline.png" />
+    <Content Include="Content\NewAssets\img\comment-1.png" />
+    <Content Include="Content\NewAssets\img\comment-2.png" />
+    <Content Include="Content\NewAssets\img\comment-3.png" />
+    <Content Include="Content\NewAssets\img\cta-map.png" />
+    <Content Include="Content\NewAssets\img\cta-men.png" />
+    <Content Include="Content\NewAssets\img\experience-text-round.png" />
+    <Content Include="Content\NewAssets\img\favicon.png" />
+    <Content Include="Content\NewAssets\img\google-play.svg" />
+    <Content Include="Content\NewAssets\img\icon-clock.svg" />
+    <Content Include="Content\NewAssets\img\icon-docs.svg" />
+    <Content Include="Content\NewAssets\img\icon-navigator.svg" />
+    <Content Include="Content\NewAssets\img\location-marker.png" />
+    <Content Include="Content\NewAssets\img\logo-dark.png" />
+    <Content Include="Content\NewAssets\img\logo-light.png" />
+    <Content Include="Content\NewAssets\img\map.png" />
+    <Content Include="Content\NewAssets\img\mockup-2.png" />
+    <Content Include="Content\NewAssets\img\mockup-3.png" />
+    <Content Include="Content\NewAssets\img\mockup.png" />
+    <Content Include="Content\NewAssets\img\post-1.jpg" />
+    <Content Include="Content\NewAssets\img\post-2.jpg" />
+    <Content Include="Content\NewAssets\img\post-3.jpg" />
+    <Content Include="Content\NewAssets\img\post-4.jpg" />
+    <Content Include="Content\NewAssets\img\post-thumb-1.jpg" />
+    <Content Include="Content\NewAssets\img\post-thumb-2.jpg" />
+    <Content Include="Content\NewAssets\img\post-thumb-3.jpg" />
+    <Content Include="Content\NewAssets\img\pricing-bg.jpg" />
+    <Content Include="Content\NewAssets\img\pricing-car.png" />
+    <Content Include="Content\NewAssets\img\service-1.jpg" />
+    <Content Include="Content\NewAssets\img\service-2.jpg" />
+    <Content Include="Content\NewAssets\img\service-3.jpg" />
+    <Content Include="Content\NewAssets\img\service-4.jpg" />
+    <Content Include="Content\NewAssets\img\service-5.jpg" />
+    <Content Include="Content\NewAssets\img\signature.png" />
+    <Content Include="Content\NewAssets\img\slider-bg.jpg" />
+    <Content Include="Content\NewAssets\img\taxi-background.png" />
+    <Content Include="Content\NewAssets\img\taxi.png" />
+    <Content Include="Content\NewAssets\img\team-1.jpg" />
+    <Content Include="Content\NewAssets\img\team-2.jpg" />
+    <Content Include="Content\NewAssets\img\team-3.jpg" />
+    <Content Include="Content\NewAssets\img\team-4.jpg" />
+    <Content Include="Content\NewAssets\img\team-5.jpg" />
+    <Content Include="Content\NewAssets\img\team-6.jpg" />
+    <Content Include="Content\NewAssets\img\team-7.jpg" />
+    <Content Include="Content\NewAssets\img\team-8.jpg" />
+    <Content Include="Content\NewAssets\img\team-details.jpg" />
+    <Content Include="Content\NewAssets\img\texture.png" />
+    <Content Include="Content\NewAssets\img\truck-1.png" />
+    <Content Include="Content\NewAssets\img\truck-2.png" />
+    <Content Include="Content\NewAssets\img\truck-3.png" />
+    <Content Include="Content\NewAssets\js\book-ride.js" />
+    <Content Include="Content\NewAssets\js\builder.js" />
+    <Content Include="Content\NewAssets\js\contact.js" />
+    <Content Include="Content\NewAssets\js\dragble.js" />
+    <Content Include="Content\NewAssets\js\jquery-confirm.min.js" />
+    <Content Include="Content\NewAssets\js\jquery-ui.js" />
+    <Content Include="Content\NewAssets\js\main.js" />
+    <Content Include="Content\NewAssets\js\sweetalert.js" />
+    <Content Include="Content\NewAssets\js\sweetalert.min.js" />
+    <Content Include="Content\NewAssets\js\vendor\bootstrap.min.js" />
+    <Content Include="Content\NewAssets\js\vendor\jquary-3.6.0.min.js" />
+    <Content Include="Content\NewAssets\js\vendor\jquery.ajaxchimp.min.js" />
+    <Content Include="Content\NewAssets\js\vendor\jquery.datetimepicker.full.js" />
+    <Content Include="Content\NewAssets\js\vendor\jquery.nice-select.min.js" />
+    <Content Include="Content\NewAssets\js\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
+    <Content Include="Content\NewAssets\js\vendor\popper.min.js" />
+    <Content Include="Content\NewAssets\js\vendor\smooth-scroll.js" />
+    <Content Include="Content\NewAssets\js\vendor\swiper.min.js" />
+    <Content Include="Content\NewAssets\js\vendor\venobox.min.js" />
+    <Content Include="Content\NewAssets\js\vendor\wow.min.js" />
     <Content Include="Content\Site.css" />
     <Content Include="EmailTemplates\EmailRemplates.html" />
     <Content Include="favicon.ico" />
@@ -405,6 +547,36 @@
     <Content Include="Content\Admin\fonts\summernote.woff" />
     <Content Include="Content\Admin\fonts\summernote.woff2" />
     <Content Include="Handler\ajax_file_upload_handler.ashx" />
+    <Content Include="Content\NewAssets\fonts\fa-brands-400.eot" />
+    <Content Include="Content\NewAssets\fonts\fa-brands-400.ttf" />
+    <Content Include="Content\NewAssets\fonts\fa-brands-400.woff" />
+    <Content Include="Content\NewAssets\fonts\fa-brands-400.woff2" />
+    <Content Include="Content\NewAssets\fonts\fa-brands-400d41d.eot" />
+    <Content Include="Content\NewAssets\fonts\fa-regular-400.eot" />
+    <Content Include="Content\NewAssets\fonts\fa-regular-400.ttf" />
+    <Content Include="Content\NewAssets\fonts\fa-regular-400.woff" />
+    <Content Include="Content\NewAssets\fonts\fa-regular-400.woff2" />
+    <Content Include="Content\NewAssets\fonts\fa-regular-400d41d.eot" />
+    <Content Include="Content\NewAssets\fonts\fa-solid-900.eot" />
+    <Content Include="Content\NewAssets\fonts\fa-solid-900.ttf" />
+    <Content Include="Content\NewAssets\fonts\fa-solid-900.woff" />
+    <Content Include="Content\NewAssets\fonts\fa-solid-900.woff2" />
+    <Content Include="Content\NewAssets\fonts\fa-solid-900d41d.eot" />
+    <Content Include="Content\NewAssets\fonts\la-brands-400.eot" />
+    <Content Include="Content\NewAssets\fonts\la-brands-400.ttf" />
+    <Content Include="Content\NewAssets\fonts\la-brands-400.woff" />
+    <Content Include="Content\NewAssets\fonts\la-brands-400.woff2" />
+    <Content Include="Content\NewAssets\fonts\la-brands-400d41d.eot" />
+    <Content Include="Content\NewAssets\fonts\la-regular-400.eot" />
+    <Content Include="Content\NewAssets\fonts\la-regular-400.ttf" />
+    <Content Include="Content\NewAssets\fonts\la-regular-400.woff" />
+    <Content Include="Content\NewAssets\fonts\la-regular-400.woff2" />
+    <Content Include="Content\NewAssets\fonts\la-regular-400d41d.eot" />
+    <Content Include="Content\NewAssets\fonts\la-solid-900.eot" />
+    <Content Include="Content\NewAssets\fonts\la-solid-900.ttf" />
+    <Content Include="Content\NewAssets\fonts\la-solid-900.woff" />
+    <Content Include="Content\NewAssets\fonts\la-solid-900.woff2" />
+    <Content Include="Content\NewAssets\fonts\la-solid-900d41d.eot" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\dropzone\basic.css" />
     <Content Include="Scripts\dropzone\basic.min.css" />
@@ -458,6 +630,12 @@
     <Content Include="Views\Admin\AllFare.cshtml" />
     <Content Include="Views\Home\getAddress.cshtml" />
     <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Shared\_NewLayout.cshtml" />
+    <Content Include="Views\Home\FastYatra.cshtml" />
+    <Content Include="Views\Home\AboutUs.cshtml" />
+    <Content Include="Views\Home\AboutCompany.cshtml" />
+    <Content Include="Views\Home\BookCab.cshtml" />
+    <Content Include="Views\Home\ContactUs.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

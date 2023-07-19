@@ -338,7 +338,6 @@ E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.WebPages.Deployment.xm
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.WebPages.Razor.xml
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Antlr3.Runtime.pdb
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\Abhishek Ojha\Doc\CabBooking\CabBooking\obj\Debug\CabBooking.csproj.AssemblyReference.cache
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\obj\Debug\CabBooking.csproj.CoreCompileInputs.cache
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\obj\Debug\CabBooking.csproj.CopyComplete
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\obj\Debug\CabBooking.dll
@@ -548,3 +547,29 @@ E:\CabBooking\CabBooking\obj\Debug\CabBooking.csproj.CoreCompileInputs.cache
 E:\CabBooking\CabBooking\obj\Debug\CabBooking.csproj.CopyComplete
 E:\CabBooking\CabBooking\obj\Debug\CabBooking.dll
 E:\CabBooking\CabBooking\obj\Debug\CabBooking.pdb
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.AspNet.Identity.Core.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.IdentityModel.Logging.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.IdentityModel.Tokens.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Net.Http.Formatting.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.Cors.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.Http.Cors.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.Http.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.Http.WebHost.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\EntityFramework.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Owin.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.Owin.Security.Cookies.dll
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.IdentityModel.JsonWebTokens.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.IdentityModel.Logging.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.IdentityModel.Tokens.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Net.Http.Formatting.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.Http.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.Http.Cors.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.Http.WebHost.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\EntityFramework.xml
+E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.Owin.Security.Cookies.xml

@@ -240,4 +240,33 @@ namespace CabBooking.Models
         public int flag { get; set; }
         public string msg { get; set; }
     }
+
+    public class NewBooking
+    {
+        public int Id { get; set; }
+        public string fullName { get; set; }
+        public string email { get; set; }
+        public string VehicleId { get; set; }
+        public string passengers { get; set; }
+        public string startDest { get; set; }
+        public string endDest { get; set; }
+        public string rideDate { get; set; }
+        public string rideTime { get; set; }
+        public string ReturnDate { get; set; }
+        public string ReturnTime { get; set; }
+        public string MobileNo { get; set; }
+        public string TotalPrices { get; set; }
+
+    }
+
+    public class ContactUs
+    {
+        public int Id { get; set; }
+        public string firstname { get; set; }
+        public string lastname { get; set; }
+        public string email { get; set; }
+        public string phone { get; set; }
+        public string message { get; set; }
+    }
+
 }

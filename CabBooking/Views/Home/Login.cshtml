@@ -1,82 +1,39 @@
 ﻿@model CabBooking.Models.account
 @{
     ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/_MainLayout.cshtml";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
 }
-<style>
-    .wheel-start:after {
-        background-color: #f9b931 !important;
-    }
-</style>
-    <!-- //////////////////////////////// -->
-    <div class="wheel-start3">
-        <img src="images/bg7.jpg" alt="" class="wheel-img">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 padd-lr0">
-                    <div class="wheel-start3-body clearfix marg-lg-t255 marg-lg-b75 marg-sm-t190 marg-xs-b30">
-                        <h3>Register</h3>
-                        <ol class="breadcrumb">
-                            <li><a href="home/index">Home</a></li>
-                            <li><a href="#"> Account </a></li>
-                            <li class="active">Login</li>
-                        </ol>
-                    </div>
+
+
+<section class="contact-section bd-bottom padding">
+    <div class="map"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <form action="/home/Login" method="post" class="form-horizontal">
+                        @Html.Partial("_ResponseMessage")
+                        <div class="contact-title">
+                            <h2>Login ! <span></span></h2>
+                        </div>
+                        <div class="contact-form-group">
+                            <div class="form-field">
+                                <input type="text" id="LoginId" name="LoginId" class="form-control" placeholder="Login Id..." autocomplete="off" required>
+                            </div>
+                            <div class="form-field">
+                                <input type="text" id="password" name="password" class="form-control" placeholder="Password..." autocomplete="off" required>
+                            </div>
+                            <div class="form-field">
+                                <button id="submit" class="default-btn" type="submit">Submit</button>
+                            </div>
+                        </div>
+                        @*<div id="form-messages" class="alert" role="alert"></div>*@
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <!-- /////////////////////////////////// -->
-    <div class="wheel-register-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-5 padd-l0">
-                    <div class="wheel-register-log marg-lg-t150 marg-lg-b150 marg-sm-t100 marg-sm-b100">
-                        <div class="wheel-header">
-                            <h5>have an account? Log In</h5>
-                        </div>
-                        <form action="/home/Login" method="post">
-                            <label for="userName" class="fa fa-user"><input type="text" id="userName" placeholder='Username / Email' name="LoginId"></label>
-                            <label for="userPass" class="fa fa-lock"><input type="text" id='userPass' placeholder='Passsword' name="password"></label>
-                            <button class="wheel-btn" type="submit">Login Now</button>
-                            @*<label class="password-sing clearfix" for="input-val2">
-                                <input type='checkbox' id='input-val2'> <span>Keep me signed in</span>
-                                <a href="#">Forgot password?</a>
-                            </label>*@
-                        </form>
-                        @*<div class="wheel-register-link">
-                            <a href="#" class="wheel-btn-link wheel-bg11">Sign in With Facebook</a>
-                            <a href="#" class="wheel-btn-link wheel-bg12">Sign in With Twitter</a>
-                        </div>*@
-                    </div>
-                </div>
-                <div class="col-md-7 padd-r0">
-                    @*<div class="wheel-register-sign marg-lg-t150 marg-lg-b150 marg-sm-t100 marg-sm-b100">
-                        <div class="wheel-header">
-                            <h5>Sign up Now </h5>
-                            <h3>Get <span>Registered</span></h3>
-                        </div>
-                        <form action="#">
-                            <input type="text" placeholder="First Name">
-                            <input type="text" placeholder="Last Name">
-                            <input type="text" placeholder="Email">
-                            <input type="text" placeholder="Username">
-                            <input type="text" placeholder="Password">
-                            <input type="text" placeholder="Confirm Password">
-                            <label for="input-val1">
-                                <input type="checkbox" id='input-val1'> <span>I agree with the </span>
-                                <a href="#">Terms and Conditions</a>
-                            </label>
-                            <button class="wheel-btn">Sign Up</button>
-                        </form>
-                        <div class="wheel-register-link">
-                            <a href="#" class="wheel-btn-link wheel-bg11">Register With Facebook</a>
-                            <a href="#" class="wheel-btn-link wheel-bg12">Register With Twitter</a>
-                        </div>
-                    </div>*@
-                </div>
-            </div>
-        </div>
-    </div>
-
-
+</section>

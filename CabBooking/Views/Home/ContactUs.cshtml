@@ -1,0 +1,83 @@
+﻿
+@{
+    ViewBag.Title = "ContactUs";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+
+<div id="sidebox-overlay"></div>
+<div class="map-wrapper pt-90">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3562.088571565335!2d82.17364627543573!3d26.773446466061564!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399a07d422155a85%3A0xf296181c177b9dcd!2sNirmala%20Hospital%20and%20Maternity%20Center%20-%20Gastro%20Liver%20Hospitals%20%26%20Hemodialysis%20in%20Faizabad!5e0!3m2!1sen!2sin!4v1689766585176!5m2!1sen!2sin" loading="lazy" referrerpolicy="no-referrer-when-downgrade" width="100%" height="400" frameborder="0" style="border:0;" allowfullscreen></iframe>
+</div>
+<section class="contact-section bd-bottom padding">
+    <div class="map"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="contact-details-wrap">
+                    <div class="contact-title">
+                        <h2>Have Any <span>Questions?</span></h2>
+                        <p>Get in touch to discuss your employee wellbeing needs today. Please give us a call, drop us an email or fill out the contact form.</p>
+                    </div>
+                    <ul class="contact-details">
+                        <li><i class="fas fa-map-marker-alt"></i>Saketpuri colony,<br>New, Nirmala Hospital Faizabad,Uttar Pradesh India</li>
+                        <li><i class="fas fa-envelope"></i>
+                        <a href="mailto:Support@Fastyatra.Com" class="__cf_email__" data-cfemail="4c24292020230c38242921292d3f38293e62222938">Support@Fastyatra.Com</a> 
+                        </li>
+                        <li><i class="fas fa-phone"></i>(+91) 9455036259</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="contact-form">
+                    <form action="/home/ContactUs" method="post" class="form-horizontal">
+                        @Html.Partial("_ResponseMessage")
+                        <div class="contact-title">
+                            <h2>Contact With Us! <span></span></h2>
+                        </div>
+                        <div class="contact-form-group">
+                            <div class="form-field">
+                                <input type="text" id="firstname" name="firstname" class="form-control" placeholder="First Name" autocomplete="off" required>
+                            </div>
+                            <div class="form-field">
+                                <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Last Name" autocomplete="off" required>
+                            </div>
+                            <div class="form-field">
+                                <input type="email" id="email" name="email" class="form-control" placeholder="Email" autocomplete="off" required>
+                            </div>
+                            <div class="form-field">
+                                <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone Number" autocomplete="off" required>
+                            </div>
+                            <div class="form-field message">
+<textarea id="message" name="message" cols="30" rows="4" class="form-control" placeholder="Message" autocomplete="off" required></textarea>
+                            </div>
+                            <div class="form-field">
+                                <button id="submit" class="default-btn" type="submit">Send Massage</button>
+                            </div>
+                        </div>
+                        @*<div id="form-messages" class="alert" role="alert"></div>*@
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="branches-section bg-grey padding">
+    <div class="container">
+        <div class="row branches-lists">
+            <div class="col-lg-3 col-sm-6 sm-padding">
+                <div class="branches-list">
+                    <h3>Ayodhya (Head Office)</h3>
+                    <ul>
+                        <li>Saketpuri colony</li>
+                        <li>New, Nirmala Hospital Faizabad</li>
+                        <li><a href="tel:+919455036259">(+91) 9455036259</a></li>
+                        <li><a href="mailto:Support@Fastyatra.Com"><span class="__cf_email__" data-cfemail="cca9a1ada5a08ca9b4ada1bca0a9e2afa3a1">Support@Fastyatra.Com</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

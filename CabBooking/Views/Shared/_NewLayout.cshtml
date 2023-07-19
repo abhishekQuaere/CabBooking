@@ -1,0 +1,343 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ridek Online Taxi Booking HTML5 Template">
+    <meta name="author" content="DynamicLayers">
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.png">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/animate.min.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/line-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/keyframe-animation.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/jquery.datetimepicker.min.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/nice-select.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/venobox.min.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/swiper.min.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/elements.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/header.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/slider.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/blog.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/main.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/responsive.css">
+    <link rel="stylesheet" href="~/Content/NewAssets/css/draggle.css" />
+    <link rel="stylesheet" href="~/Content/NewAssets/css/jquery-ui.css" />
+    <link rel="stylesheet" href="~/Content/NewAssets/css/sweetalert.min.css" />
+    <link rel="stylesheet" href="~/Content/NewAssets/css/jquery-confirm.css" />
+    <style>
+        .load-wrap {
+            position: fixed;
+            width: 100%;
+            z-index: 9999;
+            height: 100%;
+            background-color: #fff;
+            text-align: center;
+        }
+
+            .load-wrap .wheel-load {
+                display: block;
+                padding: auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+            }
+    </style>
+    <script src="~/Content/NewAssets/js/vendor/jquary-3.6.0.min.js"></script>
+    <script src="~/Content/NewAssets/js/jquery-confirm.min.js"></script>
+    <script src="~/Content/NewAssets/js/sweetalert.min.js"></script>
+</head>
+<body>
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">
+            You are using an <strong>outdated</strong> browser. Please
+            <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+            your experience.
+        </p><![endif]-->
+    <div class="load-wrap">
+        <div class="wheel-load">
+            <img src="~/Content/images/loader.gif" alt="" class="image">
+        </div>
+    </div>
+    <header class="main-header">
+        <div class="top-header">
+            <div class="container">
+                <div class="top-header-wrap">
+                    <div class="top-left">
+                        <p>Reliable Taxi Service & Transport Solutions!</p>
+                    </div>
+                    <div class="top-right">
+                        <ul class="top-header-nav">
+                            <li><a href="#">Help</a></li>
+                            <li><a href="#">Support</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                        <ul class="header-social-share">
+                            <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="@Url.Action("Login","Home")"><i class="fab fa-user-circle-o"></i>Account</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mid-header">
+            <div class="container">
+                <div class="mid-header-wrap">
+                    <div class="site-logo">
+                        <a href="index.html"><img src="~/Content/images/logo.png" alt="Logo"></a>
+                    </div>
+                    <ul class="header-info">
+                        <li>
+                            <div class="header-info-icon">
+                                <i class="las la-phone-volume"></i>
+                            </div>
+                            <div class="header-info-text">
+                                <h3><span>Call us now</span><a href="tel:9455036259">(+91) 9455036259</a></h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="header-info-icon">
+                                <i class="las la-envelope-open"></i>
+                            </div>
+                            <div class="header-info-text">
+                                <h3><span>Email now</span><a href="mailto:Support@Fastyatra.Com" class="__cf_email__" data-cfemail="276e49414809554e43424c674a464e4b0944484a">Support@fastyatra.com</a></h3>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="header-info-icon">
+                                <i class="las la-map-marked-alt"></i>
+                            </div>
+                            <div class="header-info-text">
+                                <h3><span>Ayodhya</span>Uttar Pradesh, India</h3>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="nav-menu-wrapper">
+            <div class="container">
+                <div class="nav-menu-inner">
+                    <div class="site-logo">
+                        <a href="index.html"><img src="~/Content/images/logo.png" alt="Logo"></a>
+                    </div>
+                    <div class="header-menu-wrap">
+                        <ul class="nav-menu">
+                            <li class="active dropdown_menu">
+                                <a href="@Url.Action("FastYatra","Home")">Home</a>
+                                @*<ul>
+                                        <li><a href="index.html">Home Default</a></li>
+                                        <li><a href="index-2.html">Home Modern</a></li>
+                                    </ul>*@
+                            </li>
+                            <li class="dropdown_menu">
+                                <a href="#">Company</a>
+                                <ul>
+                                    <li><a href="@Url.Action("AboutUs","Home")">About Us</a></li>
+                                    <li><a href="@Url.Action("AboutCompany","Home")">About Company</a></li>
+                                    @*<li><a href="our-services.html">Our Services</a></li>
+                                        <li><a href="service-details.html">Services Details</a></li>*@
+                                    <li><a href="@Url.Action("BookCab","Home")">Book a Ride</a></li>
+                                </ul>
+                            </li>
+                            @*<li class="dropdown_menu">
+                                    <a href="our-taxi.html">Our Taxi</a>
+                                    <ul>
+                                        <li><a href="our-taxi.html">Taxi Lists</a></li>
+                                        <li><a href="taxi-details.html">Taxi Details</a></li>
+                                    </ul>
+                                </li>*@
+                            @*<li class="dropdown_menu">
+                                    <a href="#">Pages</a>
+                                    <ul>
+                                        <li><a href="our-drivers.html">Our Drivers</a></li>
+                                        <li><a href="driver-details.html">Driver Details</a></li>
+                                        <li><a href="testimonials.html">Customer Reviews</a></li>
+                                        <li><a href="faqs.html">Help &amp; Faq's</a></li>
+                                        <li><a href="404.html">404 Error</a></li>
+                                    </ul>
+                                </li>*@
+                            @*<li class="dropdown_menu">
+                                    <a href="blog-grid.html">Blog</a>
+                                    <ul>
+                                        <li><a href="blog-grid.html">Grid Posts</a></li>
+                                        <li><a href="blog-classic.html">Classic Posts</a></li>
+                                        <li><a href="blog-details.html">Blog Details</a></li>
+                                    </ul>
+                                </li>*@
+                            <li><a href="@Url.Action("ContactUs","Home")">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="menu-right-item">
+                        @*<div class="search-icon dl-search-icon">
+                            <i class="las la-search"></i>
+                        </div>
+                        <div class="sidebox-icon dl-sidebox-icon">
+                            <i class="las la-bars"></i>
+                        </div>*@
+                        <a href="@Url.Action("BookCab","Home")" class="menu-btn">Book a Taxi</a>
+                    </div>
+                    <div class="mobile-menu-icon">
+                        <div class="burger-menu">
+                            <div class="line-menu line-half first-line"></div>
+                            <div class="line-menu"></div>
+                            <div class="line-menu line-half last-line"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </header>
+
+    <div id="popup-search-box">
+        <div class="box-inner-wrap d-flex align-items-center">
+            <form id="form" action="#" method="get" role="search">
+                <input id="popup-search" type="text" name="s" placeholder="Type keywords here...">
+                <button id="popup-search-button" type="submit" name="submit">
+                    <i class="las la-search"></i>
+                </button>
+            </form>
+            <div class="search-close"><i class="las la-times"></i></div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <div id="scrollup">
+        <button id="scroll-top" class="scroll-to-top">
+            <i class="las la-arrow-up"></i>
+        </button>
+    </div>
+
+    <div class="dl-cursor">
+        <div class="cursor-icon-holder"><i class="las la-times"></i></div>
+    </div>
+    <footer class="footer-section">
+        <div class="footer-top-wrap bg-grey">
+            <div class="container">
+                <div class="footer-top">
+                    <div class="row align-items-end">
+                        <div class="col-lg-8">
+                            <div class="brand">
+                                <a class="footer-logo" href="index.html"><img src="~/Content/images/logo.png" alt="logo" style="background-color: #ff9900;"></a>
+                                <p>
+                                    Welcome to Fast Yatra, where we offer the BEST RATED cars to ensure a top-notch experience for our valued customers. Our fleet consists of highly rated vehicles that have received exceptional feedback from previous users.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="footer-call">
+                                <i class="las la-phone-volume"></i>
+                                <p><span>Call For Taxi</span><a href="tel:9455036259">(+91) 9455036259</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-mid-wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 sm-padding">
+                        <div class="footer-item">
+                            <div class="widget-title">
+                                <h3>Working Hours</h3>
+                            </div>
+                            <ul class="footer-contact">
+                                <li><span>Monday - Friday:</span>9.00am To 8.00pm</li>
+                                <li><span>Saturday:</span>10.00am To 7.30pm</li>
+                                <li><span>Sunday:</span>Close Day!</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 sm-padding">
+                        <div class="footer-item footer-list">
+                            <div class="widget-title">
+                                <h3>Usefull Links</h3>
+                            </div>
+                            <ul class="footer-links">
+                                <li><a href="@Url.Action("BookCab","Home")">Taxi Booking</a></li>
+                                @*<li><a href="faqs.html">Help Center</a></li>
+                                <li><a href="about-us.html">Privacy and Policy</a></li>
+                                <li><a href="about-company.html">Terms of Use</a></li>*@
+                                <li><a href="@Url.Action("ContactUs","Home")">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 sm-padding">
+                        <div class="footer-item">
+                            <div class="widget-title">
+                                <h3>Head Office</h3>
+                            </div>
+                            <ul class="footer-contact">
+                                <li><span>Location:</span>Saketpuri colony, new Nirmala Hospital Faizabad</li>
+                                <li><span>Join Us:</span><a href="mailto:Support@Fastyatra.Com" class="__cf_email__" data-cfemail="82cbece4edc2dbedf7f0c5efe3ebeeb0b6ace1edef" style="color: #e4ff00;">Support@Fastyatra.Com</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 sm-padding">
+                        <div class="footer-item subscribe-wrap">
+                            <div class="widget-title">
+                                <h3>Newsletter Signup</h3>
+                            </div>
+                            <form action="#" class="subscribe-form">
+                                <input class="form-control" type="email" name="email" placeholder="Your Email" required>
+                                <input type="hidden" name="action" value="mailchimpsubscribe">
+                                <button class="submit">Subscribe Now</button>
+                                <div class="clearfix"></div>
+                                <div id="subscribe-result">
+                                    <div class="subscription-success"></div>
+                                    <div class="subscription-error"></div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="running-taxi">
+                <div class="taxi"></div>
+                <div class="taxi-2"></div>
+                <div class="taxi-3"></div>
+            </div>
+        </div>
+
+        <div class="copyright-wrap">
+            <div class="container">
+                <p>© <span id="currentYear"></span> Fast Yatra.</p>
+            </div>
+        </div>
+
+    </footer>
+
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <script src="~/Content/NewAssets/js/builder.js"></script>
+    <script src="~/Content/NewAssets/js/dragble.js"></script>
+    <script src="~/Content/NewAssets/js/jquery-ui.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/jquery.ajaxchimp.min.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/bootstrap.min.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/popper.min.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/swiper.min.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/jquery.datetimepicker.full.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/jquery.nice-select.min.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/venobox.min.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/smooth-scroll.js"></script>
+    <script src="~/Content/NewAssets/js/vendor/wow.min.js"></script>
+    <script src="~/Content/NewAssets/js/book-ride.js"></script>
+    <script src="~/Content/NewAssets/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.load-wrap').hide();
+        });
+    </script>
+</body>
+
+</html>

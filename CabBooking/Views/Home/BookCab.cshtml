@@ -1,0 +1,389 @@
+﻿@model CabBooking.Models.NewBooking
+@{
+    ViewBag.Title = "BookCab";
+    Layout = "~/Views/Shared/_NewLayout.cshtml";
+}
+
+
+<div id="sidebox-overlay"></div>
+<section class="page-header">
+    <div class="page-header-shape"></div>
+    <div class="container">
+        <div class="page-header-info">
+            <h4>Get Your Cab!</h4>
+            <h2>Book Your <span>Ride</span></h2>
+            <p>Everything your taxi business <br>needs is already here! </p>
+        </div>
+    </div>
+</section>
+
+<div class="taxi-booking bg-grey padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 offset-lg-1">
+                <form action="/home/BookCab" method="post">
+                    @Html.Partial("_ResponseMessage")
+                    <div class="taxi-booking-form">
+                        <div class="form-field">
+                            <i class="las la-user-tie"></i>
+                            <input type="text" id="full-name" name="fullName" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-envelope-open"></i>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Email" required>
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-envelope-open"></i>
+                            <input type="text" id="MobileNo" name="MobileNo" class="form-control" placeholder="Mobile No." required>
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-user-friends"></i>
+                            <select name="passengers" id="passengers" class="niceSelect">
+                                <option value="1">1 Person</option>
+                                <option value="2">2 Person</option>
+                                <option value="3">3 Person</option>
+                                <option value="4">4 Person</option>
+                                <option value="5">5 Person</option>
+                            </select>
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-map-marker"></i>
+                            <input type="text" id="dropping" name="startDest" class="form-control dropping" placeholder="Start Destination" required>
+                            <input type="hidden" id="dlat" />
+                            <input type="hidden" id="dlng" />
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-map-marker"></i>
+                            <input type="text" id="picking" name="endDest" class="form-control picking" placeholder="End Destination" required>
+                            <input type="hidden" id="plat" />
+                            <input type="hidden" id="plng" />
+                            <input type="hidden" id="distance" />
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-cab"></i>
+                            @Html.DropDownListFor(m => m.VehicleId, new SelectList(ViewBag.VehiclesList, "Value", "Text"), "Select", new { @class = "niceSelect" })
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-calendar"></i>
+                            <input type="text" id="ride-date" name="rideDate" class="form-control date-picker" placeholder="Select Date" required autocomplete="off">
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-clock"></i>
+                            <input type="text" id="ride-time" name="rideTime" class="form-control time-picker" placeholder="Select Time" required autocomplete="off">
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-calendar"></i>
+                            <input type="text" id="ride-date" name="ReturnDate" class="form-control date-picker" placeholder="Select Return Date" required autocomplete="off">
+                        </div>
+                        <div class="form-field">
+                            <i class="las la-clock"></i>
+                            <input type="text" id="ride-time" name="ReturnTime" class="form-control time-picker" placeholder="Select Return Time" required autocomplete="off">
+                        </div>
+
+                        <div class="form-field">
+                            <i class="fa fa-rupee-sign"></i>
+                            <input type="text" id="ride-time" name="TotalPrices" class="form-control totalPrices" placeholder="Total Price" disabled required>
+                            <input type="hidden" name="TotalPrices" class="totalPrices" />
+                        </div>
+                        <div class="form-field">
+                            <i class="fa fa-road"></i>
+                            <input type="text" id="ride-time" name="rideTime" class="form-control totalKm" placeholder="Total K/M" disabled required>
+                        </div>
+
+                        <div class="form-field">
+                            <button id="submit" class="default-btn" type="submit">Book Your Taxi</button>
+                        </div>
+                    </div>
+                    <div id="form-messages" class="alert" role="alert"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).on('keydown', '.dropping', function () {
+       /* debugger;*/
+        var id = this.id;
+        var splitid = id.split('_');
+        var index = splitid[1];
+
+        var droping = $('.dropping').val();
+
+        if (droping.length >= 3) {
+
+            $('.dropping').autocomplete({
+                //source: EmployeeTags
+                source: function (request, response) {
+                    /*debugger;*/
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        url: '/api/WebApi/getAddress',
+                        data: { term: request.term.toUpperCase() },
+                        async: false,
+                        dataType: 'json',
+                        success: function (data) {
+                            debugger;
+                            response($.map(data.features, function (item) {
+                                /*debugger;*/
+                                return {
+                                    label: item.properties.formatted,
+                                    val: item.properties.lat + ',' + item.properties.lon
+                                };
+
+                            }))
+                        },
+                        error: function (e) {
+                            debugger
+                        }
+                    });
+                @*$.ajax({
+                    url: "@Url.Action("getAddress", "Home")",
+                    type: "POST",
+                    dataType: "json",
+                    data: { term: request.term.toUpperCase() },
+                    success: function (data) {
+                       /* debugger;*/
+                        response($.map(data, function (item) {
+                            /*debugger;*/
+                            return {
+                                label: item.formatted,
+                                val: item.lat + ',' + item.lon
+                            };
+
+                        }))
+
+                    }, error: function (data) {
+                        //alert('Hello');
+                        $('#EmployeeId_' + index).val(0);
+                    }
+                })*@
+                },
+                select: function (e, g) {
+                    /* debugger;*/
+                    //$('#EmployeeId_' + index).val(0);
+                    //$('#EmployeeId_' + index).val(g.item.val);
+                    $("#dlat").val(g.item.val);
+                },
+                minLength: 1,
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        }
+    });
+
+    $(document).on('keydown', '.picking', function () {
+       /* debugger;*/
+        var id = this.id;
+        var splitid = id.split('_');
+        var index = splitid[1];
+
+        var picking = $('.picking').val();
+
+        if (picking.length >= 3) {
+            $('.picking').autocomplete({
+                //source: EmployeeTags
+                source: function (request, response) {
+                    /*debugger;*/
+
+                    $.ajax({
+                        type: "GET",
+                        contentType: "application/json; charset=utf-8",
+                        url: '/api/WebApi/getAddress',
+                        data: { term: request.term.toUpperCase() },
+                        async: false,
+                        dataType: 'json',
+                        success: function (data) {
+                            debugger;
+                            response($.map(data.features, function (item) {
+                                /*debugger;*/
+                                return {
+                                    label: item.properties.formatted,
+                                    val: item.properties.lat + ',' + item.properties.lon
+                                };
+
+                            }))
+                        },
+                        error: function (e) {
+                            debugger
+                        }
+                    });
+
+                @*$.ajax({
+                    url: "@Url.Action("getAddress", "Home")",
+                    type: "POST",
+                    dataType: "json",
+                    data: { term: request.term.toUpperCase() },
+                    success: function (data) {
+                        debugger;
+                        response($.map(data, function (item) {
+                            debugger;
+                            return {
+                                label: item.formatted,
+                                val: item.lat + ',' + item.lon
+                            };
+
+                        }))
+
+                    }, error: function (data) {
+                        //alert('Hello');
+                        $('#EmployeeId_' + index).val(0);
+                    }
+                })*@
+                },
+                select: function (e, g) {
+                    /*debugger;*/
+                    $("#plat").val(g.item.val);
+                },
+                minLength: 1,
+                messages: {
+                    noResults: "", results: ""
+                }
+            });
+        }
+    });
+
+    $('.dropping').on("change", function () {
+        $('.dropping').val();
+
+        @*if (dropping != null && dropping != "" && dropping != undefined) {
+            $.ajax({
+                url: "@Url.Action("GetCoordinates", "Home")",
+                type: "POST",
+                dataType: "json",
+                data: { address: dropping },
+                success: function (data) {
+                    debugger;
+                    if (data != null) {
+                        $("#dlat").val(data.lat);
+                        $("#dlng").val(data.lng);
+                    }
+                }
+            })
+        }*@
+    });
+
+    $('.picking').on("change", function () {
+        var picking = $('.picking').val();
+
+        @*if (picking != null && picking != "" && picking != undefined) {
+            $.ajax({
+                url: "@Url.Action("GetCoordinates", "Home")",
+                type: "POST",
+                dataType: "json",
+                data: { address: picking },
+                success: function (data) {
+                    debugger;
+                    if (data != null) {
+                        $("#plat").val(data.lat);
+                        $("#plng").val(data.lng);
+                        GetCalculateDistance();
+                    }
+
+                }
+            })
+        }*@
+    });
+
+    function GetCalculateDistance() {
+        debugger;
+        var source = {
+            lat: $("#dlat").val(),
+           lng: $("#dlng").val()
+        }
+        var destination = {
+            lat: $("#plat").val(),
+            lng: $("#plng").val()
+        }
+        if (source != null && destination != null) {
+            $.ajax({
+                url: "@Url.Action("GetCalculateDistance", "Home")",
+                type: "POST",
+                dataType: "json",
+                data: { source: source, destination: destination },
+                success: function (data) {
+                    debugger;
+                    if (data != null) {
+                        $("#distance").val(data);
+
+                        var TotalPrice = 0;
+                        TotalPrice = (parseFloat(data) * 12 + 250);
+                        $(".totalPrices").val(TotalPrice.toFixed(2));
+                    }
+
+                }
+            });
+        } else {
+            alert("Something went wrong");
+        }
+    }
+
+    $('#VehicleId').on("change", function () {
+        debugger;
+        var priceKm = $('#VehicleId').val();
+
+        var dl = $("#dlat").val();
+        var dlaaray = dl.split(',');
+        var dlat = dlaaray[0];
+        var dlng = dlaaray[1];
+        //var index = splitid[1];
+
+        if (dl == "" || dl == undefined || dl == null) {
+            $("#dlat").val('');
+            $("#dropping").val('');
+            $('#VehicleId').val('');
+            swal("", "Please select address from the suggestion box", "error");
+            return false;
+        }
+
+        var pl = $("#plat").val();
+        var plaaray = pl.split(',');
+        var plat = plaaray[0];
+        var plng = plaaray[1];
+
+        if (pl == "" || pl == undefined || pl == null) {
+            $("#picking").val('');
+            $("#plat").val('');
+            $('#VehicleId').val('');
+            swal("", "Please select address from the suggestion box", "error");
+            return false;
+        }
+
+        var source = {
+            lat: dlat,
+            lng: dlng
+        }
+        var destination = {
+            lat: plat,
+            lng: plng
+        }
+        if (source != null && destination != null) {
+            $.ajax({
+                url: "@Url.Action("GetCalculateDistance", "Home")",
+                type: "POST",
+                dataType: "json",
+                data: { source: source, destination: destination },
+                success: function (data) {
+                    debugger;
+                    if (data != null) {
+                        $("#distance").val(data);
+
+                        var TotalPrice = 0;
+                        TotalPrice = (parseFloat(data) * parseFloat(priceKm) + 250);
+                        $(".totalPrices").val(TotalPrice.toFixed(2));
+                        $(".totalKm").val(data);
+                    }
+
+                }
+            });
+        } else {
+            alert("Something went wrong");
+        }
+
+    })
+
+</script>

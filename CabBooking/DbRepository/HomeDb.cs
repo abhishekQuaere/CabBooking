@@ -80,5 +80,53 @@ namespace CabBooking.DbRepository
                 throw ex;
             }
         }
+
+        public T NewAddBooking<T>(NewBooking obj)
+        {
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("ProcId", 1);
+                dynamicParameters.Add("Id", obj.Id);
+                dynamicParameters.Add("Source", obj.endDest);
+                dynamicParameters.Add("Destination", obj.startDest);
+                dynamicParameters.Add("TotalPrices", obj.TotalPrices);
+                dynamicParameters.Add("Name", obj.fullName);
+                dynamicParameters.Add("MobileNo", obj.MobileNo);
+                dynamicParameters.Add("PickupDate", obj.rideDate);
+                dynamicParameters.Add("PickupTime", obj.rideTime);
+                dynamicParameters.Add("ReturnDate", obj.ReturnDate);
+                dynamicParameters.Add("ReturnTime", obj.ReturnTime);
+                dynamicParameters.Add("passengers", obj.passengers);
+
+                return _dapper.ExecuteGet<T>("Proc_AddBooking", dynamicParameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public T ContactUs<T>(ContactUs obj)
+        {
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("ProcId", 1);
+                dynamicParameters.Add("Id", obj.Id);
+                dynamicParameters.Add("firstname", obj.firstname);
+                dynamicParameters.Add("lastname", obj.lastname);
+                dynamicParameters.Add("email", obj.email);
+                dynamicParameters.Add("phone", obj.phone);
+                dynamicParameters.Add("message", obj.message);
+
+                return _dapper.ExecuteGet<T>("Proc_ContactUs", dynamicParameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }
