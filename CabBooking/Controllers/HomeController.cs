@@ -388,7 +388,7 @@ namespace CabBooking.Controllers
             if (!String.IsNullOrEmpty(model.LoginId) && !String.IsNullOrEmpty(model.password))
             {
                 var res = homeDb.CheckLoginType<account>(model);
-                if (res != null)
+                if (res.id > 0)
                 {
                     if (res.flag == 1)
                     {
@@ -439,7 +439,7 @@ namespace CabBooking.Controllers
         {
             return View();
         }
-        
+
         public ActionResult AboutCompany()
         {
             return View();

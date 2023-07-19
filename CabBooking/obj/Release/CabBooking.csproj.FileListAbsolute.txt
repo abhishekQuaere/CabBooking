@@ -199,7 +199,6 @@ E:\CabBooking\CabBooking\bin\System.Web.WebPages.Deployment.xml
 E:\CabBooking\CabBooking\bin\System.Web.WebPages.Razor.xml
 E:\CabBooking\CabBooking\bin\Antlr3.Runtime.pdb
 E:\CabBooking\CabBooking\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-E:\CabBooking\CabBooking\obj\Release\CabBooking.csproj.AssemblyReference.cache
 E:\CabBooking\CabBooking\obj\Release\CabBooking.csproj.CoreCompileInputs.cache
 E:\CabBooking\CabBooking\obj\Release\CabBooking.csproj.CopyComplete
 E:\CabBooking\CabBooking\obj\Release\CabBooking.dll
@@ -333,3 +332,10 @@ E:\Abhishek Ojha\Doc\CabBooking\CabBooking\obj\Release\CabBooking.csproj.CoreCom
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\obj\Release\CabBooking.csproj.CopyComplete
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\obj\Release\CabBooking.dll
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\obj\Release\CabBooking.pdb
+E:\CabBooking\CabBooking\bin\System.Net.Http.Formatting.dll
+E:\CabBooking\CabBooking\bin\System.Web.Cors.dll
+E:\CabBooking\CabBooking\bin\System.Web.Http.Cors.dll
+E:\CabBooking\CabBooking\bin\System.Web.Http.dll
+E:\CabBooking\CabBooking\bin\System.Net.Http.Formatting.xml
+E:\CabBooking\CabBooking\bin\System.Web.Http.xml
+E:\CabBooking\CabBooking\bin\System.Web.Http.Cors.xml
