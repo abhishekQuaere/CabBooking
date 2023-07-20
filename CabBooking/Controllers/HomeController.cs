@@ -414,7 +414,7 @@ namespace CabBooking.Controllers
             Session.Abandon();
             Session.RemoveAll();
             Session.Clear();
-            return RedirectToAction("Index");
+            return RedirectToAction("FastYatra");
         }
 
         public void sendEmail(string email, string UserId, string Pass)
