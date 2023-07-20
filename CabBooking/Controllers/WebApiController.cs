@@ -31,9 +31,8 @@ namespace CabBooking.Controllers
             {
                 string apiKey = "16c6b62bcedf492e923e0cfa39d58db9";
                 var httpRequest = HttpContext.Current.Request;
-            //https://api.geoapify.com/v1/places/autocomplete?text="+term+"&state=Uttar Pradesh, India&apiKey="+apiKey+""
 
-                Uri baseAddress = new Uri("https://api.geoapify.com/v1/geocode/autocomplete?text="+term+"&apiKey="+apiKey+"");
+                Uri baseAddress = new Uri("https://api.geoapify.com/v1/geocode/autocomplete?text="+term+ "&country=IN&state=UP&apiKey=" + apiKey+"");
                 client.BaseAddress = baseAddress;
 
                 HttpResponseMessage response = await client.GetAsync(client.BaseAddress);
