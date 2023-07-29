@@ -574,3 +574,10 @@ E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\System.Web.Http.WebHost.xml
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\EntityFramework.xml
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\bin\Microsoft.Owin.Security.Cookies.xml
 E:\Abhishek Ojha\Doc\CabBooking\CabBooking\obj\Debug\CabBooking.csproj.AssemblyReference.cache
+E:\CabBooking\CabBooking\bin\System.Net.Http.Formatting.dll
+E:\CabBooking\CabBooking\bin\System.Web.Cors.dll
+E:\CabBooking\CabBooking\bin\System.Web.Http.Cors.dll
+E:\CabBooking\CabBooking\bin\System.Web.Http.dll
+E:\CabBooking\CabBooking\bin\System.Net.Http.Formatting.xml
+E:\CabBooking\CabBooking\bin\System.Web.Http.xml
+E:\CabBooking\CabBooking\bin\System.Web.Http.Cors.xml

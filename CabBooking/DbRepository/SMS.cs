@@ -41,7 +41,7 @@ namespace CabBooking.Models
             Message = Message.Replace("[PURPOSE]", purpose);
             return Message;
         }
-        
+
         static public string CollegeCredential(string MemberName, string UserId, string Passwprd)
         {
 
@@ -52,7 +52,7 @@ namespace CabBooking.Models
             return Message;
         }
 
-        static public string otpMessageForCollegeRegistration(string OTP, string MemberName,string UserId,string Password,string CollegeName)
+        static public string otpMessageForCollegeRegistration(string OTP, string MemberName, string UserId, string Password, string CollegeName)
         {
 
             string Message = ConfigurationManager.AppSettings["Examinor"].ToString();
@@ -73,11 +73,11 @@ namespace CabBooking.Models
         {
             string status = null;
             try
-            {                
+            {
                 var senderEmail = new MailAddress("quickpedigital@gmail.com", "MGKVP");
                 var receiverEmail = new MailAddress(receiver, "Receiver");
                 var password = "pdnnyairqqydthbp"; /*pdnnyairqqydthbp*/
-                 var sub = subject;
+                var sub = subject;
                 var body = message;
                 var smtp = new SmtpClient
                 {
@@ -106,7 +106,7 @@ namespace CabBooking.Models
             return status;
         }
 
-        static public void SendEmailMessag(string receiver, string subject, string message)
+        static public void SendEmailMessag1(string receiver, string subject, string message)
         {
             try
             {
@@ -118,7 +118,7 @@ namespace CabBooking.Models
                 string Subject = subject;
                 MailMessage _mailmsg = new MailMessage();
                 _mailmsg.IsBodyHtml = true;
-                _mailmsg.From = new MailAddress(emailSender, "MGKVP");
+                _mailmsg.From = new MailAddress(emailSender, "FastYatra");
                 _mailmsg.To.Add(receiver.ToString());
                 _mailmsg.Subject = subject;
                 _mailmsg.Body = message;
@@ -132,6 +132,44 @@ namespace CabBooking.Models
             }
             catch (Exception ex)
             {
+            }
+        }
+
+        static public void SendEmailMessag(string receiver, string subject, string message)
+        {
+            // Replace with your GoDaddy email and password
+            string email = "support@fastyatra.com";
+            string password = "Kd800753*";
+
+            // Replace with the recipient email address
+            string recipientEmail = receiver;
+
+            MailMessage mailMessage = new MailMessage(email, recipientEmail)
+            {
+                IsBodyHtml = true,
+                From = new MailAddress("support@fastyatra.com", "FastYatra"),
+                Subject = subject,
+                Body = message
+            };
+
+            // Configure SMTP client settings for GoDaddy
+            SmtpClient smtpClient = new SmtpClient("smtpout.secureserver.net", 587)
+            {
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(email, password),
+                EnableSsl = true
+            };
+
+            try
+            {
+                // Send the email
+                smtpClient.Send(mailMessage);
+                //ViewBag.Message = "Email sent successfully!";
+            }
+            catch (Exception ex)
+            {
+                // Handle any exceptions that occur during sending
+                //ViewBag.Error = $"Error sending email: {ex.Message}";
             }
         }
 

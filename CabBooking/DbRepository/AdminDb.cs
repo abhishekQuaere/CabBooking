@@ -76,6 +76,20 @@ namespace CabBooking.DbRepository
                 throw ex;
             }
         }
+        public T GetVehicle<T>(AddVehicle obj)
+        {
+            try
+            {
+                DynamicParameters dynamicParameters = new DynamicParameters();
+                dynamicParameters.Add("Id", obj.Id);
+                dynamicParameters.Add("ProcId", obj.ProcId);
+                return _dapper.Get<T>("Proc_GetAllVehicle", dynamicParameters);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public T AddVehicleImageById<T>(VehicleImage obj)
         {

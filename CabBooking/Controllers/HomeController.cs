@@ -97,6 +97,11 @@ namespace CabBooking.Controllers
                 obj = homeDb.NewAddBooking<ResultSet>(model);
                 if (obj.flag == 1)
                 {
+                    sendEmail("support@fastyatra.com", model.fullName, model.MobileNo);
+                    if (!String.IsNullOrEmpty(model.email))
+                    {
+                        sendEmailUser(model.email, model.fullName, model.MobileNo, model.fullName);
+                    }
                     CreateResponse("FastYatra", "Home", obj.msg, ResponseType.Success);
                 }
             }
@@ -435,6 +440,24 @@ namespace CabBooking.Controllers
             return msgBody;
         }
 
+        public void sendEmailUser(string email, string UserId, string Pass,string name)
+        {
+            string MessageBody = getMessageBodyUser(UserId, Pass,name);
+            string subject = "New Booking";
+            Mail.SendEmailMessag(email, subject, MessageBody);
+            //return Json(otp, JsonRequestBehavior.AllowGet);
+        }
+
+        public String getMessageBodyUser(string UserId, string Pass,string name)
+        {
+            StreamReader rd = new StreamReader(HostingEnvironment.MapPath(@"~/EmailTemplates/EmailRemplates.html"));
+            string msgBody = rd.ReadToEnd();
+            msgBody = msgBody.Replace("[User]", name);
+            msgBody = msgBody.Replace("[UserId]", UserId);
+            msgBody = msgBody.Replace("[Password]", Pass);
+            return msgBody;
+        }
+
         public ActionResult AboutUs()
         {
             return View();
@@ -463,6 +486,11 @@ namespace CabBooking.Controllers
                 obj = homeDb.NewAddBooking<ResultSet>(model);
                 if (obj.flag == 1)
                 {
+                    sendEmail("support@fastyatra.com", model.fullName, model.MobileNo);
+                    if (!String.IsNullOrEmpty(model.email))
+                    {
+                        sendEmailUser(model.email, model.fullName, model.MobileNo, model.fullName);
+                    }
                     CreateResponse("BookCab", "Home", obj.msg, ResponseType.Success);
                 }
             }

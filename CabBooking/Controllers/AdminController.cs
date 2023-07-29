@@ -12,7 +12,7 @@ using System.Web.Mvc;
 
 namespace CabBooking.Controllers
 {
-    [AuthorizeAdmin]
+    //[AuthorizeAdmin]
     public class AdminController : Controller
     {
         // GET: Admin
@@ -123,7 +123,7 @@ namespace CabBooking.Controllers
             {
                 model.Id = Convert.ToInt32(id);
                 model.ProcId = 1;
-                model.list = adminDb.GetAllVehicle<AddVehicle>(model);
+                model = adminDb.GetVehicle<AddVehicle>(model);
             }
             return View(model);
         }
@@ -232,7 +232,7 @@ namespace CabBooking.Controllers
         public ActionResult AllVehicle()
         {
             AddVehicle model = new AddVehicle();
-            model.ProcId = 2;
+            model.ProcId = 3;
             model.list = adminDb.GetAllVehicle<AddVehicle>(model);
             return View(model);
 
@@ -305,6 +305,19 @@ namespace CabBooking.Controllers
                 msg = status;
             }
             return Json(new { result = res, fpath = path, mesg = msg });
+        }
+
+        [HttpGet]
+        public ActionResult DeleteVehicle(int? id)
+        {
+            AddVehicle model = new AddVehicle();
+            if (Convert.ToInt32(id) != 0)
+            {
+                model.Id = Convert.ToInt32(id);
+                model.ProcId = 2;
+                model = adminDb.GetVehicle<AddVehicle>(model);
+            }
+            return RedirectToAction("AllVehicle");
         }
 
     }
