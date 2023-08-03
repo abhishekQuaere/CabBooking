@@ -444,6 +444,7 @@
     <Content Include="Content\NewAssets\img\about-3.jpg" />
     <Content Include="Content\NewAssets\img\app-store.svg" />
     <Content Include="Content\NewAssets\img\auhtor.png" />
+    <Content Include="Content\NewAssets\img\banner_2.jpeg" />
     <Content Include="Content\NewAssets\img\bg-1.jpg" />
     <Content Include="Content\NewAssets\img\car steering.svg" />
     <Content Include="Content\NewAssets\img\car-1.png" />

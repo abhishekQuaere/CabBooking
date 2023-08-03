@@ -55,6 +55,45 @@ namespace CabBooking.Controllers
                 return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
             }
         }
+        
+        [HttpGet]
+        public async Task<HttpResponseMessage> getAddressWithRistriction(string term)
+        {
+            string apiKey = "16c6b62bcedf492e923e0cfa39d58db9"; // Replace with your Geoapify API key
+            string baseUrl = "https://api.geoapify.com/v1/geocode/autocomplete";
+
+            string country = "India"; // The country for which you want to get autocomplete results
+            string query = term; // The query you want to autocomplete
+
+            try
+            {
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    string apiUrl = $"{baseUrl}?text={Uri.EscapeDataString(query)}&country={Uri.EscapeDataString(country)}&apiKey={apiKey}";
+
+                    HttpResponseMessage response = await httpClient.GetAsync(apiUrl);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string resultJson = await response.Content.ReadAsStringAsync();
+                        // Process the JSON response here
+                        Newtonsoft.Json.Linq.JObject json = Newtonsoft.Json.Linq.JObject.Parse(resultJson);
+                        var product = Newtonsoft.Json.JsonConvert.DeserializeObject<RootV2>(resultJson);
+                        var j = JsonSerializer.Serialize(product);
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
+                    }
+                    return response;
+                }
+            }
+            catch (Exception ex)
+            {
+                //Console.WriteLine($"Error: {ex.Message}");
+                return Request.CreateResponse(HttpStatusCode.OK, ex.Message);
+            }
+        }
 
     }
 }
